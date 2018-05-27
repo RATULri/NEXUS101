@@ -33,3 +33,6 @@ captures/
 
 .idea
 /.idea
+
+local.properties
+Nexus101-master.iml
