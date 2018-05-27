@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_group"
+        android:icon="@drawable/ic_group"
+        android:title="Group" />
+
+    <item
+        android:id="@+id/navigation_course"
+        android:icon="@drawable/ic_course"
+        android:title="Course" />
+
+    <item
+        android:id="@+id/navigation_student_account"
+        android:icon="@drawable/ic_add_user"
+        android:title="Account" />
+
+    <item
+        android:id="@+id/navigation_teacher_account"
+        android:icon="@drawable/ic_add_user"
+        android:title="Account" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/title_profile" />
+
+</menu>
