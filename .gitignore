@@ -32,7 +32,6 @@ proguard/
 captures/
 
 .idea
-/.idea
-
 local.properties
-Nexus101-master.iml
+.idea/workspace.xml
+Nexus101.iml

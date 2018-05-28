@@ -15,16 +15,17 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import nexus101.MainActivity;
 import nexus101.R;
 import nexus101.adapters.StudentListAdapter;
 import nexus101.admin.course.AdminCourseActivity;
 import nexus101.admin.group.AdminGroupActivity;
+import nexus101.listeners.StudentItemClickListener;
 import nexus101.network.downloads.StudentDownload;
 import nexus101.network.downloads.StudentInfoDownloadCallBack;
 import nexus101.network.models.Student;
+import nexus101.student.StudentProfileActivity;
 
-public class AdminStudentAccountActivity extends AppCompatActivity implements StudentInfoDownloadCallBack{
+public class AdminStudentAccountActivity extends AppCompatActivity implements StudentInfoDownloadCallBack, StudentItemClickListener{
 
     private TextView mTextMessage;
     private RecyclerView recyclerView;
@@ -105,7 +106,7 @@ public class AdminStudentAccountActivity extends AppCompatActivity implements St
 
     @Override
     public void onStudentInfoDownloadSuccess(List<Student> students) {
-        adapter = new StudentListAdapter(this, students);
+        adapter = new StudentListAdapter(this, students, this);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -116,5 +117,11 @@ public class AdminStudentAccountActivity extends AppCompatActivity implements St
     @Override
     public void onStudentInfoDownloadError() {
         mProgressDialog.dismiss();
+    }
+
+    @Override
+    public void onItemClick(Student student) {
+        Intent intent = new Intent(getApplicationContext(), StudentProfileEditActivity.class);
+        startActivity(intent);
     }
 }

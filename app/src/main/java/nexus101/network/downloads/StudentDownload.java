@@ -10,6 +10,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class StudentDownload {
+
     StudentInfoDownloadCallBack mCallback;
     StudentApiInterface apiService;
 
@@ -26,6 +27,7 @@ public class StudentDownload {
             @Override
             public void onResponse(Call<StudentResponse> call, Response<StudentResponse> response) {
                 Log.d("Test", response.body().getStudent().toString());
+
                 if (response.body().getStatus().equals(1)){
                     mCallback.onStudentInfoDownloadSuccess(response.body().getStudent());
                 }

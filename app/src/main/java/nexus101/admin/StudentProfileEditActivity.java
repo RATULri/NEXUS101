@@ -1,4 +1,4 @@
-package nexus101.student;
+package nexus101.admin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +9,11 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import nexus101.NotificationActivity;
 import nexus101.R;
+import nexus101.admin.course.AdminCourseActivity;
+import nexus101.admin.group.AdminGroupActivity;
 
-public class StudentProfileActivity extends AppCompatActivity {
+public class StudentProfileEditActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
@@ -22,17 +23,20 @@ public class StudentProfileActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                case R.id.navigation_group:
+                    mTextMessage.setText("Group");
                     return true;
-                case R.id.navigation_attendance:
-                    mTextMessage.setText(R.string.title_attendance);
+                case R.id.navigation_course:
+                    mTextMessage.setText("Course");
                     return true;
-                case R.id.navigation_notification:
-                    mTextMessage.setText(R.string.title_notifications);
+                case R.id.navigation_student_account:
+                    mTextMessage.setText("Student Acc");
+                    return true;
+                case R.id.navigation_teacher_account:
+                    mTextMessage.setText("Teacher Acc");
                     return true;
                 case R.id.navigation_profile:
-                    mTextMessage.setText(R.string.title_profile);
+                    mTextMessage.setText("Profile");
                     return true;
             }
             return false;
@@ -42,7 +46,7 @@ public class StudentProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_profile);
+        setContentView(R.layout.activity_admin_student_profile_edit);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -51,20 +55,25 @@ public class StudentProfileActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId())
                 {
-                    case R.id.navigation_home:
-                        Intent intent = new Intent(getApplicationContext(),StudentHomeActivity.class);
+                    case R.id.navigation_group:
+                        Intent intent = new Intent(getApplicationContext(), AdminGroupActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.navigation_attendance:
-                        intent = new Intent(getApplicationContext(), StudentAttendanceActivity.class);
+                    case R.id.navigation_course:
+                        intent = new Intent(getApplicationContext(), AdminCourseActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.navigation_notification:
-                        intent = new Intent(getApplicationContext(), NotificationActivity.class);
+                    case R.id.navigation_student_account:
+                        intent = new Intent(getApplicationContext(), AdminStudentAccountActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.navigation_teacher_account:
+                        intent = new Intent(getApplicationContext(),AdminTeacherAccountActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.navigation_profile:
-                        Toast.makeText(StudentProfileActivity.this, "Profile", Toast.LENGTH_SHORT).show();
+                        intent = new Intent(getApplicationContext(), AdminProfileActivity.class);
+                        startActivity(intent);
                         break;
                 }
                 return true;

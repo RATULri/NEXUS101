@@ -1,25 +1,43 @@
 package nexus101.admin.course;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 import nexus101.R;
+import nexus101.adapters.CourseLIstAdapter;
+import nexus101.adapters.StudentListAdapter;
 import nexus101.admin.AdminProfileActivity;
 import nexus101.admin.AdminStudentAccountActivity;
 import nexus101.admin.AdminTeacherAccountActivity;
+import nexus101.admin.StudentProfileEditActivity;
 import nexus101.admin.group.AdminGroupActivity;
+import nexus101.listeners.CourseItemClickListener;
+import nexus101.network.downloads.CourseDownload;
+import nexus101.network.downloads.CourseInfoDownloadCallBack;
+import nexus101.network.models.CoursesInfo;
+import nexus101.network.models.Student;
 
-public class AdminCourseActivity extends AppCompatActivity {
+public class AdminCourseActivity extends AppCompatActivity implements CourseInfoDownloadCallBack, CourseItemClickListener{
 
     private TextView mTextMessage;
+    private RecyclerView recyclerView;
+    private CourseLIstAdapter adapter;
+    private LinearLayoutManager linearLayoutManager;
+    private ProgressDialog mProgressDialog;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -73,6 +91,12 @@ public class AdminCourseActivity extends AppCompatActivity {
         });
 
 
+        recyclerView = (RecyclerView) findViewById(R.id.rv_course);
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("Please wait...");
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
+        new CourseDownload(AdminCourseActivity.this).run();
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -104,6 +128,27 @@ public class AdminCourseActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    @Override
+    public void onCourseInfoDownloadSuccess(List<CoursesInfo> coursesInfo) {
+        adapter = new CourseLIstAdapter(this, coursesInfo, this);
+        linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+        mProgressDialog.dismiss();
+    }
+
+    @Override
+    public void onCourseInfoDownloadError() {
+        mProgressDialog.dismiss();
+    }
+
+    @Override
+    public void onItemClick(CoursesInfo coursesInfo) {
+        //Intent intent = new Intent(getApplicationContext(), StudentProfileEditActivity.class);
+        //startActivity(intent);
     }
 
 }

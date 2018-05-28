@@ -16,12 +16,13 @@ import nexus101.admin.course.AdminCourseActivity;
 import nexus101.admin.AdminProfileActivity;
 import nexus101.admin.AdminStudentAccountActivity;
 import nexus101.admin.AdminTeacherAccountActivity;
+import nexus101.admin.course.CreateCourseActivity;
 
 public class AdminGroupActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
-/*    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -45,7 +46,7 @@ public class AdminGroupActivity extends AppCompatActivity {
             }
             return false;
         }
-    };*/
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +62,9 @@ public class AdminGroupActivity extends AppCompatActivity {
 
             @Override
             public boolean onMenuItemSelected(MenuItem menuItem) {
-                Toast.makeText(AdminGroupActivity.this, ""+menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(AdminGroupActivity.this, ""+menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), CreateGroupActivity.class);
+                startActivity(intent);
                 return true;
             }
 

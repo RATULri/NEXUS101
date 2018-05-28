@@ -34,7 +34,7 @@
         android:background="@color/colorPrimary"
         android:text="create new account"
         android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_student"

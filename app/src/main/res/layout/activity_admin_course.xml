@@ -24,7 +24,7 @@
 
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/title_courses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -36,13 +36,18 @@
         android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_course"
         android:layout_width="match_parent"
-        android:layout_height="352dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="106dp" >
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_above="@+id/navigation"
+        android:layout_below="@+id/title_courses"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        tools:ignore="RtlCompat" />
 
     <io.github.yavski.fabspeeddial.FabSpeedDial
         android:id="@+id/fabCourseMenu"
@@ -50,15 +55,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="80dp"
         android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
         app:fabGravity="bottom_end"
         app:fabMenu="@menu/menu_course"
         app:miniFabBackgroundTint="@color/colorPrimary"
         app:miniFabDrawableTint="@android:color/white"
-        app:miniFabTitleTextColor="@color/colorPrimary"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="19dp" />
+        app:miniFabTitleTextColor="@color/colorPrimary" />
 
 </RelativeLayout>

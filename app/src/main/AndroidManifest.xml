@@ -80,7 +80,13 @@
             android:label="@string/title_activity_group_view" />
         <activity
             android:name=".admin.group.CourseViewActivity"
-            android:label="@string/title_activity_course_view"></activity>
+            android:label="@string/title_activity_course_view" />
+        <activity
+            android:name=".admin.StudentProfileEditActivity"
+            android:label="@string/title_activity_student_profile_edit" />
+        <activity
+            android:name=".admin.TeacherProfileEditActivity"
+            android:label="@string/title_activity_teacher_profile_edit"></activity>
     </application>
 
 </manifest>

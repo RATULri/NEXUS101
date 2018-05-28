@@ -41,4 +41,6 @@
     <string name="title_activity_group">Group</string>
     <string name="title_activity_admin_student_account">AdminStudentAccount</string>
     <string name="title_activity_group_view">GroupViewActivity</string>
+    <string name="title_activity_student_profile_edit">StudentProfileEditActivity</string>
+    <string name="title_activity_teacher_profile_edit">TeacherProfileEditActivity</string>
 </resources>
