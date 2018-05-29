@@ -43,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/create_student"
+        android:layout_above="@id/navigation"
         tools:ignore="RtlCompat" />
 
 </RelativeLayout>

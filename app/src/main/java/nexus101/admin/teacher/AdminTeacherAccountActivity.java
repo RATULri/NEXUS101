@@ -10,6 +10,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import nexus101.admin.AdminProfileActivity;
 import nexus101.admin.course.AdminCourseActivity;
 import nexus101.admin.group.AdminGroupActivity;
 import nexus101.admin.student.AdminStudentAccountActivity;
+import nexus101.admin.student.CreateNewStudentActivity;
 import nexus101.listeners.TeacherItemClickListener;
 import nexus101.network.downloads.TeacherDownload;
 import nexus101.network.downloads.TeacherInfoDownloadCallBack;
@@ -64,6 +67,18 @@ public class AdminTeacherAccountActivity extends AppCompatActivity implements Te
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_teacher_account);
+
+
+        //Create New Teacher Account
+        Button create = findViewById(R.id.create_teacher);
+
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CreateNewTeacherActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //Call the teacher download
         recyclerView = (RecyclerView) findViewById(R.id.rv_teacher);

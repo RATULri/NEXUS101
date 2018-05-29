@@ -87,7 +87,8 @@
         <activity
             android:name=".admin.teacher.TeacherProfileEditActivity"
             android:label="@string/title_activity_teacher_profile_edit" />
-        <activity android:name=".admin.student.CreateNewStudentActivity"></activity>
+        <activity android:name=".admin.student.CreateNewStudentActivity" />
+        <activity android:name=".admin.teacher.CreateNewTeacherActivity"></activity>
     </application>
 
 </manifest>

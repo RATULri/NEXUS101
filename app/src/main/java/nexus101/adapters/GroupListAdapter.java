@@ -43,8 +43,8 @@ public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.Card
 
         @Override
         public void onBindViewHolder(@NonNull GroupListAdapter.CardViewHolder holder, int position) {
-        holder.bind(groupsInfo.get(position));
-    }
+            holder.bind(groupsInfo.get(position));
+        }
 
         @Override
         public int getItemCount() {
