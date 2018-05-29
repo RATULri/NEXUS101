@@ -2,8 +2,10 @@ package nexus101.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
@@ -59,9 +61,9 @@ public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.Card
                 tv_name = (TextView) itemView.findViewById(R.id.course_or_group_name);
             }
 
-            public void bind(final CoursesInfo coursesInfo) {
+            public void bind(final GroupsInfo groupsInfo) {
 
-                tv_name.setText(coursesInfo.getCourseName());
+                tv_name.setText(groupsInfo.getGroupName());
 
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
