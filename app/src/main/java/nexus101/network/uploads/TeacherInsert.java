@@ -3,18 +3,18 @@ package nexus101.network.uploads;
 import android.util.Log;
 
 import nexus101.network.ApiClient;
-import nexus101.network.responses.TeacherInsertResponse;
+import nexus101.network.responses.InsertResponse;
 import nexus101.network.services.TeacherInsertApiInterface;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TeacherUpload {
+public class TeacherInsert {
 
     TeacherInsertCallBack mCallBack;
     TeacherInsertApiInterface apiService;
 
-    public TeacherUpload(TeacherInsertCallBack teacherInsertCallBack) {
+    public TeacherInsert(TeacherInsertCallBack teacherInsertCallBack) {
         this.mCallBack = teacherInsertCallBack;
     }
 
@@ -25,11 +25,11 @@ public class TeacherUpload {
                     String designation) {
 
         apiService = ApiClient.getClient().create(TeacherInsertApiInterface.class);
-        Call<TeacherInsertResponse> call = apiService.storeTeacher(name, email, password, bloodGroup, designation);
+        Call<InsertResponse> call = apiService.storeTeacher(name, email, password, bloodGroup, designation);
 
-        call.enqueue(new Callback<TeacherInsertResponse>() {
+        call.enqueue(new Callback<InsertResponse>() {
             @Override
-            public void onResponse(Call<TeacherInsertResponse> call, Response<TeacherInsertResponse> response) {
+            public void onResponse(Call<InsertResponse> call, Response<InsertResponse> response) {
                 Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
                     mCallBack.onInsertSuccess();
@@ -41,7 +41,7 @@ public class TeacherUpload {
             }
 
             @Override
-            public void onFailure(Call<TeacherInsertResponse> call, Throwable t) {
+            public void onFailure(Call<InsertResponse> call, Throwable t) {
                 mCallBack.onInsertError();
             }
         });

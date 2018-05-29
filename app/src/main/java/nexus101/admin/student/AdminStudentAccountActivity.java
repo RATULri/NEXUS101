@@ -14,9 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.List;
-
 import nexus101.R;
 import nexus101.adapters.StudentListAdapter;
 import nexus101.admin.AdminProfileActivity;
@@ -142,7 +140,8 @@ public class AdminStudentAccountActivity extends AppCompatActivity implements St
 
     @Override
     public void onItemClick(Student student) {
-        Intent intent = new Intent(getApplicationContext(), StudentProfileEditActivity.class);
+        //Toast.makeText(AdminStudentAccountActivity.this, student.getUserInfo().getName(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(AdminStudentAccountActivity.this, StudentProfileEditActivity.class);
         intent.putExtra("student", student);
         startActivity(intent);
     }

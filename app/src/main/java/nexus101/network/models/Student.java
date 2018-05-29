@@ -5,14 +5,15 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Student implements Serializable{
+
+public class Student implements Serializable {
 
     @SerializedName("student_info")
     @Expose
-    private StudentInfo studentInfo;
+    private StudentInfo studentInfo = null;
     @SerializedName("user_info")
     @Expose
-    private UserInfo userInfo;
+    private UserInfo userInfo = null;
 
     /**
      * No args constructor for use in serialization

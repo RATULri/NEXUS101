@@ -3,7 +3,7 @@ package nexus101.network.responses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class StudentInsertResponse {
+public class UpdateResponse {
     @SerializedName("message")
     @Expose
     private String message;
@@ -11,7 +11,7 @@ public class StudentInsertResponse {
     @Expose
     private Integer status;
 
-    public StudentInsertResponse(String message, Integer status) {
+    public UpdateResponse(String message, Integer status) {
         this.message = message;
         this.status = status;
     }

@@ -3,18 +3,18 @@ package nexus101.network.uploads;
 import android.util.Log;
 
 import nexus101.network.ApiClient;
-import nexus101.network.responses.StudentInsertResponse;
+import nexus101.network.responses.InsertResponse;
 import nexus101.network.services.StudentInsertApiInterface;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class StudentUpload {
+public class StudentInsert {
 
     StudentInsertCallback mCallback;
     StudentInsertApiInterface apiService;
 
-    public StudentUpload(StudentInsertCallback studentInsertCallback){
+    public StudentInsert(StudentInsertCallback studentInsertCallback){
         this.mCallback = studentInsertCallback;
     }
 
@@ -30,11 +30,11 @@ public class StudentUpload {
                     String hall) {
 
         apiService = ApiClient.getClient().create(StudentInsertApiInterface.class);
-        Call<StudentInsertResponse> call = apiService.storeStudent(name, email, password, address, dateOfBirth, bloodGroup, rollNo, registrationNo, session, hall);
+        Call<InsertResponse> call = apiService.storeStudent(name, email, password, address, dateOfBirth, bloodGroup, rollNo, registrationNo, session, hall);
 
-        call.enqueue(new Callback<StudentInsertResponse>() {
+        call.enqueue(new Callback<InsertResponse>() {
             @Override
-            public void onResponse(Call<StudentInsertResponse> call, Response<StudentInsertResponse> response) {
+            public void onResponse(Call<InsertResponse> call, Response<InsertResponse> response) {
                 Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
                     mCallback.onInsertSuccess();
@@ -46,7 +46,7 @@ public class StudentUpload {
             }
 
             @Override
-            public void onFailure(Call<StudentInsertResponse> call, Throwable t) {
+            public void onFailure(Call<InsertResponse> call, Throwable t) {
                 mCallback.onInsertError();
             }
         });

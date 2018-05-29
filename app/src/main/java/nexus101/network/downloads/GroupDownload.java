@@ -25,7 +25,7 @@ public class GroupDownload {
         call.enqueue(new Callback<GroupResponse>() {
             @Override
             public void onResponse(Call<GroupResponse> call, Response<GroupResponse> response) {
-                Log.d("Test", response.body().getGroupsInfo().toString());
+                //Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
                     mCallback.onGroupInfoDownloadSuccess(response.body().getGroupsInfo());
                 }

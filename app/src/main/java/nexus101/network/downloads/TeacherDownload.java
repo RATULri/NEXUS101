@@ -28,7 +28,7 @@ public class TeacherDownload {
         call.enqueue(new Callback<TeacherResponse>() {
             @Override
             public void onResponse(Call<TeacherResponse> call, Response<TeacherResponse> response) {
-                Log.d("Test", response.body().getTeacher().toString());
+                //Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
                     mCallback.onTeacherInfoDownloadSuccess(response.body().getTeacher());
                 }

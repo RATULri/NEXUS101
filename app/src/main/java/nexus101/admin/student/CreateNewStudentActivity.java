@@ -18,7 +18,7 @@ import java.util.Locale;
 
 import nexus101.R;
 import nexus101.network.uploads.StudentInsertCallback;
-import nexus101.network.uploads.StudentUpload;
+import nexus101.network.uploads.StudentInsert;
 
 public class CreateNewStudentActivity extends AppCompatActivity implements View.OnClickListener, StudentInsertCallback {
 
@@ -135,7 +135,7 @@ public class CreateNewStudentActivity extends AppCompatActivity implements View.
                 mProgressDialog.setMessage("Submitting student information...");
                 mProgressDialog.setCancelable(false);
                 mProgressDialog.show();
-                new StudentUpload(this).run(name,email,password,address,dateOfBirth,bloodGroup,rollNo,registrationNo,session,hall);
+                new StudentInsert(this).run(name,email,password,address,dateOfBirth,bloodGroup,rollNo,registrationNo,session,hall);
             }
         }
     }

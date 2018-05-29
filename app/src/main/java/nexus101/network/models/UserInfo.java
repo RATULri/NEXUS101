@@ -19,6 +19,9 @@ public class UserInfo implements Serializable{
     @SerializedName("user_type")
     @Expose
     private String userType;
+    @SerializedName("phone_number")
+    @Expose
+    private String phoneNumber;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -37,17 +40,19 @@ public class UserInfo implements Serializable{
      *
      * @param updatedAt
      * @param id
+     * @param phoneNumber
      * @param email
      * @param createdAt
      * @param name
      * @param userType
      */
-    public UserInfo(Integer id, String name, String email, String userType, String createdAt, String updatedAt) {
+    public UserInfo(Integer id, String name, String email, String userType, String phoneNumber, String createdAt, String updatedAt) {
         super();
         this.id = id;
         this.name = name;
         this.email = email;
         this.userType = userType;
+        this.phoneNumber = phoneNumber;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -84,6 +89,14 @@ public class UserInfo implements Serializable{
         this.userType = userType;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getCreatedAt() {
         return createdAt;
     }
@@ -101,4 +114,3 @@ public class UserInfo implements Serializable{
     }
 
 }
-

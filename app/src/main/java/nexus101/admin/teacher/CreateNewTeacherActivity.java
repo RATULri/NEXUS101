@@ -11,10 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import nexus101.R;
-import nexus101.admin.student.CreateNewStudentActivity;
-import nexus101.network.uploads.StudentUpload;
 import nexus101.network.uploads.TeacherInsertCallBack;
-import nexus101.network.uploads.TeacherUpload;
+import nexus101.network.uploads.TeacherInsert;
 
 public class CreateNewTeacherActivity extends AppCompatActivity implements View.OnClickListener, TeacherInsertCallBack{
 
@@ -83,7 +81,7 @@ public class CreateNewTeacherActivity extends AppCompatActivity implements View.
                 mProgressDialog.setMessage("Submitting teacher information...");
                 mProgressDialog.setCancelable(false);
                 mProgressDialog.show();
-                new TeacherUpload(this).run(name,email,password,bloodGroup,designation);
+                new TeacherInsert(this).run(name,email,password,bloodGroup,designation);
             }
         }
     }
