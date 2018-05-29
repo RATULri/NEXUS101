@@ -21,34 +21,46 @@
         app:fontFamily="@font/hammersmith_one" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="288dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="210dp"
-        android:background="@android:drawable/edit_text"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:textColor="#663399"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="182dp" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="287dp"
+        android:id="@+id/email"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="154dp"
+        android:layout_marginRight="100dp"
         android:background="@android:drawable/edit_text"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:hint="Email"
         android:textColor="#663399"
         android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="100dp"
+        android:background="@android:drawable/edit_text"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:textColor="#663399"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:text="Forgot Password?"
+        android:layout_marginTop="10dp"
+        android:background="#E1BEE7"
+        android:textColor="#663399"
+        android:textSize="12dp" />
 
     <Button
         android:id="@+id/login"
@@ -60,16 +72,5 @@
         android:background="#663399"
         android:textColor="#FFFFFF"
         android:text="Log In"/>
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:text="Forgot Password?"
-        android:background="#E1BEE7"
-        android:textColor="#663399"
-        android:textSize="8sp" />
 
 </RelativeLayout>

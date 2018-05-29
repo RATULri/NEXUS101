@@ -32,6 +32,8 @@ import nexus101.network.models.Teacher;
 public class AdminTeacherAccountActivity extends AppCompatActivity implements TeacherInfoDownloadCallBack, TeacherItemClickListener{
 
     private TextView mTextMessage;
+    private BottomNavigationView navigation;
+
     private RecyclerView recyclerView;
     private TeacherListAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
@@ -89,7 +91,12 @@ public class AdminTeacherAccountActivity extends AppCompatActivity implements Te
         new TeacherDownload(AdminTeacherAccountActivity.this).run();
 
         mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        setBottomNav();
+        navigation.setSelectedItemId(R.id.navigation_teacher_account);
+    }
+
+    private void setBottomNav() {
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -119,7 +126,6 @@ public class AdminTeacherAccountActivity extends AppCompatActivity implements Te
             }
         });
     }
-
 
 
     @Override

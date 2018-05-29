@@ -62,16 +62,16 @@ public class CreateNewStudentActivity extends AppCompatActivity implements View.
     }
 
     private void initialize() {
-        et_name = (EditText) findViewById(R.id.edit_name);
-        et_email = (EditText) findViewById(R.id.edit_email);
-        et_password = (EditText) findViewById(R.id.edit_password);
-        et_address = (EditText) findViewById(R.id.edit_address);
-        et_dateOfBirth = (EditText) findViewById(R.id.edit_date_of_birth);
-        et_bloodGroup = (EditText) findViewById(R.id.edit_blood_group);
-        et_rollNo = (EditText) findViewById(R.id.edit_roll_no);
-        et_registrationNo = (EditText) findViewById(R.id.edit_reg_no);
-        et_session = (EditText) findViewById(R.id.edit_session);
-        et_hall = (EditText) findViewById(R.id.edit_hall);
+        et_name = findViewById(R.id.edit_name);
+        et_email =  findViewById(R.id.edit_email);
+        et_password =  findViewById(R.id.edit_password);
+        et_address =  findViewById(R.id.edit_address);
+        et_dateOfBirth =  findViewById(R.id.edit_date_of_birth);
+        et_bloodGroup =  findViewById(R.id.edit_blood_group);
+        et_rollNo =  findViewById(R.id.edit_roll_no);
+        et_registrationNo =  findViewById(R.id.edit_reg_no);
+        et_session =  findViewById(R.id.edit_session);
+        et_hall =  findViewById(R.id.edit_hall);
 
         bt_submit = (Button) findViewById(R.id.submit);
         bt_submit.setOnClickListener(this);

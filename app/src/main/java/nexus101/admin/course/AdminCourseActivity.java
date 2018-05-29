@@ -18,7 +18,7 @@ import java.util.List;
 
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 import nexus101.R;
-import nexus101.adapters.CourseLIstAdapter;
+import nexus101.adapters.CourseListAdapter;
 import nexus101.admin.AdminProfileActivity;
 import nexus101.admin.student.AdminStudentAccountActivity;
 import nexus101.admin.teacher.AdminTeacherAccountActivity;
@@ -31,8 +31,10 @@ import nexus101.network.models.CoursesInfo;
 public class AdminCourseActivity extends AppCompatActivity implements CourseInfoDownloadCallBack, CourseItemClickListener{
 
     private TextView mTextMessage;
+    private BottomNavigationView navigation;
+
     private RecyclerView recyclerView;
-    private CourseLIstAdapter adapter;
+    private CourseListAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
     private ProgressDialog mProgressDialog;
 
@@ -96,7 +98,12 @@ public class AdminCourseActivity extends AppCompatActivity implements CourseInfo
         new CourseDownload(AdminCourseActivity.this).run();
 
         mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        setBottomNav();
+        navigation.setSelectedItemId(R.id.navigation_student_account);
+    }
+
+    private void setBottomNav() {
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -129,7 +136,7 @@ public class AdminCourseActivity extends AppCompatActivity implements CourseInfo
 
     @Override
     public void onCourseInfoDownloadSuccess(List<CoursesInfo> coursesInfo) {
-        adapter = new CourseLIstAdapter(this, coursesInfo, this);
+        adapter = new CourseListAdapter(this, coursesInfo, this);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

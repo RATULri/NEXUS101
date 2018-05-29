@@ -1,19 +1,30 @@
 package nexus101;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.android.volley.RequestQueue;
 
 import nexus101.admin.group.AdminGroupActivity;
+import nexus101.admin.student.AdminStudentAccountActivity;
+import nexus101.admin.teacher.AdminTeacherAccountActivity;
+import nexus101.network.models.UserInfo;
+import nexus101.network.uploads.LoginCallback;
+import nexus101.network.uploads.LoginInfoUpload;
 import nexus101.student.StudentHomeActivity;
+import nexus101.teacher.TeacherHomeActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, LoginCallback {
 
-    private RequestQueue requestQueue;
+    private String email, password;
+    private EditText et_email, et_password;
+    private Button login;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,44 +32,50 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().setTitle("Nexus 101");
-
-
-
-        /*Retrofit retrofit = new Retrofit.Builder().baseUrl(Api.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
-
-        Api api = retrofit.create(Api.class);
-
-        Call<List<User>> call = api.getUser();
-
-        call.enqueue(new Callback<List<User>>() {
-            @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                List<User> users =  response.body();
-
-                for (User h: users){
-                    Log.d("email", h.getEmail());
-                    Log.d("password", h.getPassword());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
-
-
-
-
-        Button login = findViewById(R.id.login);
-
+        login = findViewById(R.id.login);
+        et_email = findViewById(R.id.email);
+        et_password = findViewById(R.id.password);
+        //login.setOnClickListener(this);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AdminGroupActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(), AdminStudentAccountActivity.class));
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.login){
+            email = et_email.getText().toString();
+            password = et_password.getText().toString();
+            if(email.length()>0 && password.length() >0){
+                mProgressDialog = new ProgressDialog(MainActivity.this);
+                mProgressDialog.setMessage("Singing in...");
+                mProgressDialog.setCancelable(false);
+                mProgressDialog.show();
+
+                new LoginInfoUpload(this).run(email, password);
+            }
+        }
+    }
+
+    @Override
+    public void onLoginSuccess(UserInfo userInfo) {
+        if(userInfo.getUserType().equals("Student")){
+            startActivity(new Intent(getApplicationContext(), StudentHomeActivity.class));
+        }
+        else if(userInfo.getUserType().equals("Teacher")){
+            startActivity(new Intent(getApplicationContext(), TeacherHomeActivity.class));
+        }
+
+        else {
+            startActivity(new Intent(getApplicationContext(), AdminGroupActivity.class));
+        }
+    }
+
+    @Override
+    public void onLoginFailed() {
+
     }
 }

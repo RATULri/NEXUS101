@@ -15,6 +15,7 @@ import nexus101.R;
 public class StudentAttendanceActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+    private BottomNavigationView navigation;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -45,7 +46,12 @@ public class StudentAttendanceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_attendance);
 
         mTextMessage = findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        setBottomNav();
+        navigation.setSelectedItemId(R.id.navigation_attendance);
+    }
+
+    private void setBottomNav() {
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

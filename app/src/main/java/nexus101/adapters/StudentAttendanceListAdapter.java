@@ -59,7 +59,7 @@ public class StudentAttendanceListAdapter extends RecyclerView.Adapter<StudentAt
 
         public void bind(final StudentAttendancesInfo studentAttendancesInfos) {
 
-            tv_name.setText(studentAttendancesInfos.getCourseName());
+            tv_name.setText(studentAttendancesInfos.getCourseId());
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

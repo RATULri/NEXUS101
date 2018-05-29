@@ -18,7 +18,6 @@ import java.util.List;
 
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 import nexus101.R;
-import nexus101.adapters.CourseLIstAdapter;
 import nexus101.adapters.GroupListAdapter;
 import nexus101.admin.course.AdminCourseActivity;
 import nexus101.admin.AdminProfileActivity;
@@ -36,6 +35,8 @@ import nexus101.network.models.GroupsInfo;
 public class AdminGroupActivity extends AppCompatActivity implements GroupInfoDownloadCallBack, GroupItemClickListener{
 
     private TextView mTextMessage;
+    private BottomNavigationView navigation;
+
     private RecyclerView recyclerView;
     private GroupListAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
@@ -102,7 +103,12 @@ public class AdminGroupActivity extends AppCompatActivity implements GroupInfoDo
         new GroupDownload(AdminGroupActivity.this).run();
 
         mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        setBottomNav();
+        navigation.setSelectedItemId(R.id.navigation_student_account);
+    }
+
+    private void setBottomNav() {
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

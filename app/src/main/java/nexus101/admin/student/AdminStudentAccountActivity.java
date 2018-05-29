@@ -31,6 +31,8 @@ import nexus101.network.models.Student;
 public class AdminStudentAccountActivity extends AppCompatActivity implements StudentInfoDownloadCallBack, StudentItemClickListener{
 
     private TextView mTextMessage;
+    private BottomNavigationView navigation;
+
     private RecyclerView recyclerView;
     private StudentListAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
@@ -87,7 +89,12 @@ public class AdminStudentAccountActivity extends AppCompatActivity implements St
         new StudentDownload(AdminStudentAccountActivity.this).run();
 
         mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        setBottomNav();
+        navigation.setSelectedItemId(R.id.navigation_student_account);
+    }
+
+    private void setBottomNav() {
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -136,6 +143,7 @@ public class AdminStudentAccountActivity extends AppCompatActivity implements St
     @Override
     public void onItemClick(Student student) {
         Intent intent = new Intent(getApplicationContext(), StudentProfileEditActivity.class);
+        intent.putExtra("student", student);
         startActivity(intent);
     }
 }
