@@ -15,14 +15,14 @@ import nexus101.admin.course.AdminCourseActivity;
 import nexus101.listeners.CourseItemClickListener;
 import nexus101.network.models.CoursesInfo;
 
-public class CourseLIstAdapter extends RecyclerView.Adapter<CourseLIstAdapter.CardViewHolder> {
+public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.CardViewHolder> {
 
     Context context;
     List<CoursesInfo> coursesInfos;
     LayoutInflater inflater;
     CourseItemClickListener courseItemClickListener;
 
-    public CourseLIstAdapter(AdminCourseActivity adminCourseActivity, List<CoursesInfo> coursesInfos, CourseItemClickListener courseItemClickListener) {
+    public CourseListAdapter(AdminCourseActivity adminCourseActivity, List<CoursesInfo> coursesInfos, CourseItemClickListener courseItemClickListener) {
         this.context = adminCourseActivity;
         this.courseItemClickListener = courseItemClickListener;
         this.coursesInfos = coursesInfos;
@@ -39,7 +39,7 @@ public class CourseLIstAdapter extends RecyclerView.Adapter<CourseLIstAdapter.Ca
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CourseLIstAdapter.CardViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CourseListAdapter.CardViewHolder holder, int position) {
         holder.bind(coursesInfos.get(position));
     }
 
