@@ -1,21 +1,38 @@
-package nexus101.admin;
+package nexus101.admin.teacher;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import nexus101.R;
+import nexus101.adapters.TeacherListAdapter;
+import nexus101.admin.AdminProfileActivity;
 import nexus101.admin.course.AdminCourseActivity;
 import nexus101.admin.group.AdminGroupActivity;
+import nexus101.admin.student.AdminStudentAccountActivity;
+import nexus101.listeners.TeacherItemClickListener;
+import nexus101.network.downloads.TeacherDownload;
+import nexus101.network.downloads.TeacherInfoDownloadCallBack;
+import nexus101.network.models.Teacher;
 
-public class StudentProfileEditActivity extends AppCompatActivity {
+public class AdminTeacherAccountActivity extends AppCompatActivity implements TeacherInfoDownloadCallBack, TeacherItemClickListener{
 
     private TextView mTextMessage;
+    private RecyclerView recyclerView;
+    private TeacherListAdapter adapter;
+    private LinearLayoutManager linearLayoutManager;
+    private ProgressDialog mProgressDialog;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -46,7 +63,15 @@ public class StudentProfileEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_student_profile_edit);
+        setContentView(R.layout.activity_admin_teacher_account);
+
+        //Call the teacher download
+        recyclerView = (RecyclerView) findViewById(R.id.rv_teacher);
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("Please wait...");
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
+        new TeacherDownload(AdminTeacherAccountActivity.this).run();
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -68,17 +93,39 @@ public class StudentProfileEditActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.navigation_teacher_account:
-                        intent = new Intent(getApplicationContext(),AdminTeacherAccountActivity.class);
-                        startActivity(intent);
+                        Toast.makeText(AdminTeacherAccountActivity.this, "Teacher Accounts", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.navigation_profile:
-                        intent = new Intent(getApplicationContext(), AdminProfileActivity.class);
+                        intent = new Intent(getApplicationContext(),AdminProfileActivity.class);
                         startActivity(intent);
                         break;
                 }
                 return true;
             }
         });
+    }
+
+
+
+    @Override
+    public void onTeacherInfoDownloadSuccess(List<Teacher> teachers) {
+        adapter = new TeacherListAdapter(this, teachers, this);
+        linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+        mProgressDialog.dismiss();
+    }
+
+    @Override
+    public void onTeacherInfoDownloadError() {
+        mProgressDialog.dismiss();
+    }
+
+    @Override
+    public void onItemClick(Teacher teacher) {
+        Intent intent = new Intent(getApplicationContext(), TeacherProfileEditActivity.class);
+        startActivity(intent);
     }
 
 }

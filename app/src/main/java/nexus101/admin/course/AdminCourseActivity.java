@@ -19,17 +19,14 @@ import java.util.List;
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 import nexus101.R;
 import nexus101.adapters.CourseLIstAdapter;
-import nexus101.adapters.StudentListAdapter;
 import nexus101.admin.AdminProfileActivity;
-import nexus101.admin.AdminStudentAccountActivity;
-import nexus101.admin.AdminTeacherAccountActivity;
-import nexus101.admin.StudentProfileEditActivity;
+import nexus101.admin.student.AdminStudentAccountActivity;
+import nexus101.admin.teacher.AdminTeacherAccountActivity;
 import nexus101.admin.group.AdminGroupActivity;
 import nexus101.listeners.CourseItemClickListener;
 import nexus101.network.downloads.CourseDownload;
 import nexus101.network.downloads.CourseInfoDownloadCallBack;
 import nexus101.network.models.CoursesInfo;
-import nexus101.network.models.Student;
 
 public class AdminCourseActivity extends AppCompatActivity implements CourseInfoDownloadCallBack, CourseItemClickListener{
 

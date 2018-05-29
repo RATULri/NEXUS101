@@ -14,9 +14,8 @@ import io.github.yavski.fabspeeddial.FabSpeedDial;
 import nexus101.R;
 import nexus101.admin.course.AdminCourseActivity;
 import nexus101.admin.AdminProfileActivity;
-import nexus101.admin.AdminStudentAccountActivity;
-import nexus101.admin.AdminTeacherAccountActivity;
-import nexus101.admin.course.CreateCourseActivity;
+import nexus101.admin.student.AdminStudentAccountActivity;
+import nexus101.admin.teacher.AdminTeacherAccountActivity;
 
 public class AdminGroupActivity extends AppCompatActivity {
 

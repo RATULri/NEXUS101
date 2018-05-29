@@ -11,6 +11,8 @@ import android.widget.Toast;
 import nexus101.R;
 import nexus101.admin.course.AdminCourseActivity;
 import nexus101.admin.group.AdminGroupActivity;
+import nexus101.admin.student.AdminStudentAccountActivity;
+import nexus101.admin.teacher.AdminTeacherAccountActivity;
 
 public class AdminProfileActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package nexus101.admin;
+package nexus101.admin.student;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +9,12 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import nexus101.R;
+import nexus101.admin.AdminProfileActivity;
+import nexus101.admin.teacher.AdminTeacherAccountActivity;
 import nexus101.admin.course.AdminCourseActivity;
 import nexus101.admin.group.AdminGroupActivity;
 
-public class TeacherProfileEditActivity extends AppCompatActivity {
+public class StudentProfileEditActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
@@ -45,7 +47,7 @@ public class TeacherProfileEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_teacher_profile_edit);
+        setContentView(R.layout.activity_admin_student_profile_edit);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

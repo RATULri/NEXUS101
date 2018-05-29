@@ -11,9 +11,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import nexus101.R;
-import nexus101.admin.AdminTeacherAccountActivity;
+import nexus101.admin.teacher.AdminTeacherAccountActivity;
 import nexus101.listeners.TeacherItemClickListener;
-import nexus101.network.models.Student;
 import nexus101.network.models.Teacher;
 
 public class TeacherListAdapter extends RecyclerView.Adapter<TeacherListAdapter.CardViewHolder> {

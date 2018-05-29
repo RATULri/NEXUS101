@@ -50,7 +50,7 @@
             android:name=".teacher.TeacherAttendanceActivity"
             android:label="@string/title_activity_teacher_attendance" />
         <activity
-            android:name=".admin.AdminTeacherAccountActivity"
+            android:name=".admin.teacher.AdminTeacherAccountActivity"
             android:label="@string/title_activity_admin_home" />
         <activity
             android:name=".admin.group.AdminGroupActivity"
@@ -66,7 +66,7 @@
             android:label="@string/title_activity_group"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".admin.AdminStudentAccountActivity"
+            android:name=".admin.student.AdminStudentAccountActivity"
             android:label="@string/title_activity_admin_student_account" />
         <activity
             android:name=".teacher.NotificationActivity"
@@ -82,11 +82,12 @@
             android:name=".admin.group.CourseViewActivity"
             android:label="@string/title_activity_course_view" />
         <activity
-            android:name=".admin.StudentProfileEditActivity"
+            android:name=".admin.student.StudentProfileEditActivity"
             android:label="@string/title_activity_student_profile_edit" />
         <activity
-            android:name=".admin.TeacherProfileEditActivity"
-            android:label="@string/title_activity_teacher_profile_edit"></activity>
+            android:name=".admin.teacher.TeacherProfileEditActivity"
+            android:label="@string/title_activity_teacher_profile_edit" />
+        <activity android:name=".admin.student.CreateNewStudentActivity"></activity>
     </application>
 
 </manifest>

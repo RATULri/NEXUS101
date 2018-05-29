@@ -1,4 +1,4 @@
-package nexus101.admin;
+package nexus101.admin.student;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,13 +19,14 @@ import java.util.List;
 
 import nexus101.R;
 import nexus101.adapters.StudentListAdapter;
+import nexus101.admin.AdminProfileActivity;
+import nexus101.admin.teacher.AdminTeacherAccountActivity;
 import nexus101.admin.course.AdminCourseActivity;
 import nexus101.admin.group.AdminGroupActivity;
 import nexus101.listeners.StudentItemClickListener;
 import nexus101.network.downloads.StudentDownload;
 import nexus101.network.downloads.StudentInfoDownloadCallBack;
 import nexus101.network.models.Student;
-import nexus101.student.StudentProfileActivity;
 
 public class AdminStudentAccountActivity extends AppCompatActivity implements StudentInfoDownloadCallBack, StudentItemClickListener{
 
@@ -63,6 +66,17 @@ public class AdminStudentAccountActivity extends AppCompatActivity implements St
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_student_account);
+
+        //Create New Student Account
+        Button create = findViewById(R.id.create_student);
+
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CreateNewStudentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //Call the student download
         recyclerView = (RecyclerView) findViewById(R.id.rv_student);
