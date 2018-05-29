@@ -14,7 +14,6 @@ import nexus101.R;
 import nexus101.admin.course.AdminCourseActivity;
 import nexus101.listeners.CourseItemClickListener;
 import nexus101.network.models.CoursesInfo;
-import nexus101.network.models.Student;
 
 public class CourseLIstAdapter extends RecyclerView.Adapter<CourseLIstAdapter.CardViewHolder> {
 
@@ -34,7 +33,7 @@ public class CourseLIstAdapter extends RecyclerView.Adapter<CourseLIstAdapter.Ca
     @NonNull
     @Override
     public CardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.item_course, parent, false);
+        View view = inflater.inflate(R.layout.item_course_and_group, parent, false);
         CardViewHolder cardViewHolder = new CardViewHolder(view);
         return cardViewHolder;
     }
@@ -56,7 +55,7 @@ public class CourseLIstAdapter extends RecyclerView.Adapter<CourseLIstAdapter.Ca
         public CardViewHolder(View itemView) {
             super(itemView);
 
-            tv_name = (TextView) itemView.findViewById(R.id.course_name);
+            tv_name = (TextView) itemView.findViewById(R.id.course_or_group_name);
         }
 
         public void bind(final CoursesInfo coursesInfo) {

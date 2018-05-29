@@ -16,7 +16,7 @@
         android:background="@color/colorPrimary">
 
         <TextView
-            android:id="@+id/course_name"
+            android:id="@+id/course_or_group_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
