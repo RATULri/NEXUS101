@@ -17,15 +17,15 @@ public class FileDownload {
         this.mCallback = fileInfoDownloadCallBack;
     }
 
-    public void run() {
+    public void run(int course_id) {
 
         apiService = ApiClient.getClient().create(FileApiInterface.class);
-        Call<FileResponse> call = apiService.getFile();
+        Call<FileResponse> call = apiService.getFiles(course_id);
 
         call.enqueue(new Callback<FileResponse>() {
             @Override
             public void onResponse(Call<FileResponse> call, Response<FileResponse> response) {
-                Log.d("Test", response.body().getFileInfo().toString());
+                Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
                     mCallback.onFileInfoDownloadSuccess(response.body().getFileInfo());
                 }
