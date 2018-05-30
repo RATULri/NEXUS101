@@ -20,6 +20,7 @@ public class StudentInsert {
 
     public void run(String name,
                     String email,
+                    String phone,
                     String password,
                     String address,
                     String dateOfBirth,
@@ -30,7 +31,7 @@ public class StudentInsert {
                     String hall) {
 
         apiService = ApiClient.getClient().create(StudentInsertApiInterface.class);
-        Call<InsertResponse> call = apiService.storeStudent(name, email, password, address, dateOfBirth, bloodGroup, rollNo, registrationNo, session, hall);
+        Call<InsertResponse> call = apiService.storeStudent(name, email, phone, password, address, dateOfBirth, bloodGroup, rollNo, registrationNo, session, hall);
 
         call.enqueue(new Callback<InsertResponse>() {
             @Override

@@ -18,12 +18,14 @@ public class CreateNewTeacherActivity extends AppCompatActivity implements View.
 
     private String name;
     private String email;
+    private String phone;
     private String password;
     private String bloodGroup;
     private String designation;
 
     private EditText et_name;
     private EditText et_email;
+    private EditText et_phone;
     private EditText et_password;
     private EditText et_bloodGroup;
     private EditText et_designation;
@@ -42,6 +44,7 @@ public class CreateNewTeacherActivity extends AppCompatActivity implements View.
     private void initialize() {
         et_name = (EditText) findViewById(R.id.edit_name);
         et_email = (EditText) findViewById(R.id.edit_email);
+        et_phone = (EditText) findViewById(R.id.edit_phone);
         et_password = (EditText) findViewById(R.id.edit_password);
         et_bloodGroup = (EditText) findViewById(R.id.edit_blood_group);
         et_designation = (EditText) findViewById(R.id.edit_designation);
@@ -56,6 +59,7 @@ public class CreateNewTeacherActivity extends AppCompatActivity implements View.
         if(v.getId() == R.id.submit){
             name = et_name.getText().toString();
             email = et_email.getText().toString();
+            phone = et_phone.getText().toString();
             password = et_password.getText().toString();
             bloodGroup = et_bloodGroup.getText().toString();
             designation = et_designation.getText().toString();
@@ -66,6 +70,10 @@ public class CreateNewTeacherActivity extends AppCompatActivity implements View.
 
             if(email.length() < 1){
                 et_email.setError("Email can't be null");
+            }
+
+            if(phone.length() < 1){
+                et_phone.setError("Phone Number can't be null");
             }
 
             if(password.length() < 1){
@@ -81,7 +89,7 @@ public class CreateNewTeacherActivity extends AppCompatActivity implements View.
                 mProgressDialog.setMessage("Submitting teacher information...");
                 mProgressDialog.setCancelable(false);
                 mProgressDialog.show();
-                new TeacherInsert(this).run(name,email,password,bloodGroup,designation);
+                new TeacherInsert(this).run(name,email,phone,password,bloodGroup,designation);
             }
         }
     }

@@ -24,6 +24,7 @@ public class CreateNewStudentActivity extends AppCompatActivity implements View.
 
     private String name;
     private String email;
+    private String phone;
     private String password;
     private String address;
     private String dateOfBirth;
@@ -35,6 +36,7 @@ public class CreateNewStudentActivity extends AppCompatActivity implements View.
 
     private EditText et_name;
     private EditText et_email;
+    private EditText et_phone;
     private EditText et_password;
     private EditText et_address;
     private EditText et_dateOfBirth;
@@ -64,6 +66,7 @@ public class CreateNewStudentActivity extends AppCompatActivity implements View.
     private void initialize() {
         et_name = findViewById(R.id.edit_name);
         et_email =  findViewById(R.id.edit_email);
+        et_phone = findViewById(R.id.edit_phone);
         et_password =  findViewById(R.id.edit_password);
         et_address =  findViewById(R.id.edit_address);
         et_dateOfBirth =  findViewById(R.id.edit_date_of_birth);
@@ -93,6 +96,7 @@ public class CreateNewStudentActivity extends AppCompatActivity implements View.
         if(v.getId() == R.id.submit){
             name = et_name.getText().toString();
             email = et_email.getText().toString();
+            phone = et_phone.getText().toString();
             password = et_password.getText().toString();
             address = et_address.getText().toString();
             dateOfBirth = et_dateOfBirth.getText().toString();
@@ -108,6 +112,10 @@ public class CreateNewStudentActivity extends AppCompatActivity implements View.
 
             if(email.length() < 1){
                 et_email.setError("Email can't be null");
+            }
+
+            if(phone.length() < 1){
+                et_phone.setError("Phone Number can't be null");
             }
 
             if(password.length() < 1){
@@ -135,7 +143,7 @@ public class CreateNewStudentActivity extends AppCompatActivity implements View.
                 mProgressDialog.setMessage("Submitting student information...");
                 mProgressDialog.setCancelable(false);
                 mProgressDialog.show();
-                new StudentInsert(this).run(name,email,password,address,dateOfBirth,bloodGroup,rollNo,registrationNo,session,hall);
+                new StudentInsert(this).run(name,email,phone,password,address,dateOfBirth,bloodGroup,rollNo,registrationNo,session,hall);
             }
         }
     }
@@ -157,7 +165,7 @@ public class CreateNewStudentActivity extends AppCompatActivity implements View.
 
     @SuppressLint("NewApi")
     private void updateLabel() {
-        String myFormat = "dd-mm-yyyy"; //In which you need put here
+        String myFormat = "dd-mm-yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         et_dateOfBirth.setText(sdf.format(myCalendar.getTime()));
     }

@@ -11,6 +11,7 @@ public interface StudentInsertApiInterface {
     @FormUrlEncoded
     Call<InsertResponse> storeStudent(@Field("name") String name,
                                       @Field("email") String email,
+                                      @Field("phone_number") String phone,
                                       @Field("password") String password,
                                       @Field("address") String address,
                                       @Field("date_of_birth") String dateOfBirth,

@@ -39,6 +39,7 @@ public class StudentProfileEditActivity extends AppCompatActivity implements Vie
 
     private EditText et_name;
     private EditText et_email;
+    private EditText et_phone;
     private EditText et_address;
     private EditText et_dateOfBirth;
     private EditText et_bloodGroup;
@@ -46,7 +47,6 @@ public class StudentProfileEditActivity extends AppCompatActivity implements Vie
     private EditText et_registrationNo;
     private EditText et_session;
     private EditText et_hall;
-    private EditText et_phone;
 
     private Button bt_save;
     private ImageButton edit;
@@ -74,6 +74,7 @@ public class StudentProfileEditActivity extends AppCompatActivity implements Vie
     private void setStudentInfo(Student student) {
         et_name.setText(student.getUserInfo().getName());
         et_email.setText(student.getUserInfo().getEmail());
+        et_phone.setText(student.getUserInfo().getPhoneNumber());
         et_address.setText(student.getStudentInfo().getAddress());
         et_dateOfBirth.setText(student.getStudentInfo().getDateOfBirth());
         et_bloodGroup.setText(student.getStudentInfo().getBloodGroup());
@@ -81,13 +82,13 @@ public class StudentProfileEditActivity extends AppCompatActivity implements Vie
         et_registrationNo.setText(student.getStudentInfo().getRegistrationNumber());
         et_session.setText(student.getStudentInfo().getSession());
         et_hall.setText(student.getStudentInfo().getAttachedHall());
-        et_phone.setText(student.getUserInfo().getPhoneNumber());
     }
 
     private void initialize() {
 
         et_name = findViewById(R.id.name);
         et_email =  findViewById(R.id.email);
+        et_phone =  findViewById(R.id.phone);
         et_address =  findViewById(R.id.address);
         et_dateOfBirth =  findViewById(R.id.date_of_birth);
         et_bloodGroup =  findViewById(R.id.blood_group);
@@ -95,7 +96,6 @@ public class StudentProfileEditActivity extends AppCompatActivity implements Vie
         et_registrationNo =  findViewById(R.id.reg_no);
         et_session =  findViewById(R.id.session);
         et_hall =  findViewById(R.id.hall);
-        et_phone = findViewById(R.id.phone);
 
         bt_save = (Button) findViewById(R.id.save_button);
         bt_save.setOnClickListener(this);
@@ -141,7 +141,6 @@ public class StudentProfileEditActivity extends AppCompatActivity implements Vie
     public void onClick(View v) {
         if(v.getId() == R.id.imageButton){
             et_name.setEnabled(true);
-            et_email.setEnabled(true);
             et_dateOfBirth.setEnabled(true);
             et_address.setEnabled(true);
             et_bloodGroup.setEnabled(true);

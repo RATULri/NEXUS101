@@ -11,6 +11,7 @@ public interface TeacherInsertApiInterface {
     @FormUrlEncoded
     Call<InsertResponse> storeTeacher(@Field("name") String name,
                                       @Field("email") String email,
+                                      @Field("phone_number") String phone,
                                       @Field("password") String password,
                                       @Field("blood_group") String bloodGroup,
                                       @Field("designation") String designation);

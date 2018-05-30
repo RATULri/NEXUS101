@@ -20,12 +20,13 @@ public class TeacherInsert {
 
     public void run(String name,
                     String email,
+                    String phone,
                     String password,
                     String bloodGroup,
                     String designation) {
 
         apiService = ApiClient.getClient().create(TeacherInsertApiInterface.class);
-        Call<InsertResponse> call = apiService.storeTeacher(name, email, password, bloodGroup, designation);
+        Call<InsertResponse> call = apiService.storeTeacher(name, email, phone, password, bloodGroup, designation);
 
         call.enqueue(new Callback<InsertResponse>() {
             @Override
