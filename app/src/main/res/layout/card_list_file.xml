@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="16dp"
@@ -37,7 +38,8 @@
             android:inputType="date"
             android:text="01/01/2018"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            tools:ignore="RtlCompat" />
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -47,7 +49,8 @@
             android:layout_below="@+id/textView5"
             android:background="#ffffff"
             android:tint="@color/colorPrimary"
-            app:srcCompat="@android:drawable/stat_sys_download_done" />
+            app:srcCompat="@android:drawable/stat_sys_download_done"
+            tools:ignore="RtlCompat" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

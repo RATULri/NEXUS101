@@ -100,10 +100,10 @@ public class AdminCourseActivity extends AppCompatActivity implements CourseInfo
         mTextMessage = (TextView) findViewById(R.id.message);
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         setBottomNav();
-        navigation.setSelectedItemId(R.id.navigation_student_account);
     }
 
     private void setBottomNav() {
+        navigation.setSelectedItemId(R.id.navigation_student_account);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

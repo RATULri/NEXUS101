@@ -63,7 +63,7 @@ public class TeacherProfileActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.navigation_attendance:
-                        intent = new Intent(getApplicationContext(), TeacherAttendanceActivity.class);
+                        intent = new Intent(getApplicationContext(), TeacherAttendanceCourseSelectActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.navigation_notification:
@@ -79,4 +79,9 @@ public class TeacherProfileActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), TeacherHomeActivity.class);
+        startActivity(intent);
+    }
 }

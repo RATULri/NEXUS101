@@ -42,7 +42,7 @@ public class TeacherFileViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_file_view);
+        setContentView(R.layout.activity_teacher_file_view);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -73,4 +73,9 @@ public class TeacherFileViewActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(TeacherFileViewActivity.this, TeacherHomeActivity.class);
+        startActivity(intent);
+    }
 }

@@ -6,7 +6,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nexus101.teacher.TeacherHomeActivity">
+    tools:context="nexus101.teacher.TeacherAttendanceTakingActivity">
 
     <TextView
         android:id="@+id/textView19"
@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
-        android:text="Courses"
+        android:text="Attendance"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"

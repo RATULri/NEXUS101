@@ -1,23 +1,40 @@
 package nexus101.teacher;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import nexus101.NotificationActivity;
 import nexus101.R;
+import nexus101.adapters.CourseListAdapter;
+import nexus101.listeners.CourseItemClickListener;
+import nexus101.network.downloads.CourseDownloadByTeacher;
+import nexus101.network.downloads.CourseInfoDownloadCallBack;
+import nexus101.network.models.CourseInfo;
 import nexus101.student.StudentHomeActivity;
 import nexus101.student.StudentProfileActivity;
 
-public class TeacherAttendanceActivity extends AppCompatActivity {
+public class TeacherAttendanceCourseSelectActivity extends AppCompatActivity implements CourseInfoDownloadCallBack, CourseItemClickListener {
 
     private TextView mTextMessage;
     private BottomNavigationView navigation;
+
+    private RecyclerView recyclerView;
+    private CourseListAdapter adapter;
+    private LinearLayoutManager linearLayoutManager;
+    private ProgressDialog mProgressDialog;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -45,16 +62,25 @@ public class TeacherAttendanceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_teacher_attendance);
+        setContentView(R.layout.activity_teacher_attendance);
         getSupportActionBar().setTitle("Attendance");
 
         mTextMessage = (TextView) findViewById(R.id.message);
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         setBottomNav();
-        navigation.setSelectedItemId(R.id.navigation_attendance);
+
+
+        recyclerView = (RecyclerView) findViewById(R.id.rv_list);
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("Please wait...");
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
+        new CourseDownloadByTeacher(this).run(1);
+
     }
 
     private void setBottomNav() {
+        navigation.setSelectedItemId(R.id.navigation_attendance);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -65,7 +91,7 @@ public class TeacherAttendanceActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.navigation_attendance:
-                        Toast.makeText(TeacherAttendanceActivity.this, "StudentAttendanceActivity", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TeacherAttendanceCourseSelectActivity.this, "StudentAttendanceActivity", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.navigation_notification:
                         intent = new Intent(getApplicationContext(), NotificationActivity.class);
@@ -79,6 +105,34 @@ public class TeacherAttendanceActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    @Override
+    public void onItemClick(CourseInfo courseInfo) {
+        Intent intent = new Intent(getApplicationContext(), TeacherAttendanceTakingActivity.class);
+        intent.putExtra("course", courseInfo);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onCourseInfoDownloadSuccess(List<CourseInfo> courseInfo) {
+        adapter = new CourseListAdapter(this, courseInfo, this);
+        linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
+        mProgressDialog.dismiss();
+    }
+
+    @Override
+    public void onCourseInfoDownloadError() {
+        mProgressDialog.dismiss();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), TeacherHomeActivity.class);
+        startActivity(intent);
     }
 
 }

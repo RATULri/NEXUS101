@@ -22,8 +22,8 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Ca
     LayoutInflater inflater;
     CourseItemClickListener courseItemClickListener;
 
-    public CourseListAdapter(AdminCourseActivity adminCourseActivity, List<CourseInfo> courseInfos, CourseItemClickListener courseItemClickListener) {
-        this.context = adminCourseActivity;
+    public CourseListAdapter(Context context, List<CourseInfo> courseInfos, CourseItemClickListener courseItemClickListener) {
+        this.context = context;
         this.courseItemClickListener = courseItemClickListener;
         this.courseInfos = courseInfos;
         this.inflater = LayoutInflater.from(context);

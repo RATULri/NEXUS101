@@ -47,7 +47,7 @@
             android:name=".student.FileViewActivity"
             android:label="@string/title_activity_file_view" />
         <activity
-            android:name=".teacher.TeacherAttendanceActivity"
+            android:name=".teacher.TeacherAttendanceCourseSelectActivity"
             android:label="@string/title_activity_teacher_attendance" />
         <activity
             android:name=".admin.teacher.AdminTeacherAccountActivity"
@@ -88,7 +88,11 @@
             android:name=".admin.teacher.TeacherProfileEditActivity"
             android:label="@string/title_activity_teacher_profile_edit" />
         <activity android:name=".admin.student.CreateNewStudentActivity" />
-        <activity android:name=".admin.teacher.CreateNewTeacherActivity"></activity>
+        <activity android:name=".admin.teacher.CreateNewTeacherActivity" />
+        <activity android:name=".teacher.TeacherFileViewActivity"/>
+        <activity
+            android:name=".teacher.TeacherAttendanceTakingActivity"
+            android:label="@string/title_activity_teacher_attendance_taking"></activity>
     </application>
 
 </manifest>

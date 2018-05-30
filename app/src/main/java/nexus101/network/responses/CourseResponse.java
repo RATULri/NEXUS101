@@ -14,7 +14,7 @@ public class CourseResponse {
     @SerializedName("status")
     @Expose
     private Integer status;
-    @SerializedName("courses_info")
+    @SerializedName("course_info")
     @Expose
     private List<CourseInfo> courseInfo = null;
 
