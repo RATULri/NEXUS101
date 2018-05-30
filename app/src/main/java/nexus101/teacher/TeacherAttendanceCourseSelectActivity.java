@@ -20,7 +20,7 @@ import nexus101.R;
 import nexus101.adapters.CourseListAdapter;
 import nexus101.listeners.CourseItemClickListener;
 import nexus101.network.downloads.CourseDownloadByTeacher;
-import nexus101.network.downloads.CourseInfoDownloadCallBack;
+import nexus101.network.downloads.callback.CourseInfoDownloadCallBack;
 import nexus101.network.models.CourseInfo;
 import nexus101.student.StudentHomeActivity;
 import nexus101.student.StudentProfileActivity;

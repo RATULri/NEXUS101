@@ -1,11 +1,8 @@
 package nexus101.network.downloads;
 
-import android.util.Log;
-
 import nexus101.network.ApiClient;
-import nexus101.network.responses.StudentResponse;
+import nexus101.network.downloads.callback.TeacherInfoDownloadCallBack;
 import nexus101.network.responses.TeacherResponse;
-import nexus101.network.services.StudentApiInterface;
 import nexus101.network.services.TeacherApiInterface;
 import retrofit2.Call;
 import retrofit2.Callback;

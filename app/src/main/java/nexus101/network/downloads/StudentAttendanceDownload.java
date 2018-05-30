@@ -3,6 +3,7 @@ package nexus101.network.downloads;
 import android.util.Log;
 
 import nexus101.network.ApiClient;
+import nexus101.network.downloads.callback.StudentAttendanceInfoDownloadCallBack;
 import nexus101.network.responses.StudentAttendanceResponse;
 import nexus101.network.services.StudentAttendanceApiInterface;
 import retrofit2.Call;

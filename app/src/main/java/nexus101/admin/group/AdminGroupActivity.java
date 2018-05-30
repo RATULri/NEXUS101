@@ -26,7 +26,7 @@ import nexus101.admin.student.AdminStudentAccountActivity;
 import nexus101.admin.teacher.AdminTeacherAccountActivity;
 import nexus101.listeners.GroupItemClickListener;
 import nexus101.network.downloads.GroupDownload;
-import nexus101.network.downloads.GroupInfoDownloadCallBack;
+import nexus101.network.downloads.callback.GroupInfoDownloadCallBack;
 import nexus101.network.models.GroupInfo;
 
 public class AdminGroupActivity extends AppCompatActivity implements GroupInfoDownloadCallBack, GroupItemClickListener{

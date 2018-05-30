@@ -23,10 +23,9 @@ import nexus101.admin.AdminProfileActivity;
 import nexus101.admin.course.AdminCourseActivity;
 import nexus101.admin.group.AdminGroupActivity;
 import nexus101.admin.student.AdminStudentAccountActivity;
-import nexus101.admin.student.CreateNewStudentActivity;
 import nexus101.listeners.TeacherItemClickListener;
 import nexus101.network.downloads.TeacherDownload;
-import nexus101.network.downloads.TeacherInfoDownloadCallBack;
+import nexus101.network.downloads.callback.TeacherInfoDownloadCallBack;
 import nexus101.network.models.Teacher;
 
 public class AdminTeacherAccountActivity extends AppCompatActivity implements TeacherInfoDownloadCallBack, TeacherItemClickListener{

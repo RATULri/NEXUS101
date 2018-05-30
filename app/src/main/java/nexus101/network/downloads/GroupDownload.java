@@ -1,7 +1,7 @@
 package nexus101.network.downloads;
 
-import android.util.Log;
 import nexus101.network.ApiClient;
+import nexus101.network.downloads.callback.GroupInfoDownloadCallBack;
 import nexus101.network.responses.GroupResponse;
 import nexus101.network.services.GroupApiInterface;
 import retrofit2.Call;

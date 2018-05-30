@@ -10,19 +10,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class StudentDownload {
-
+public class StudentDownloadByGroup {
     StudentInfoDownloadCallBack mCallback;
     StudentApiInterface apiService;
 
-    public StudentDownload(StudentInfoDownloadCallBack studentInfoDownloadCallBack){
+    public StudentDownloadByGroup(StudentInfoDownloadCallBack studentInfoDownloadCallBack){
         this.mCallback = studentInfoDownloadCallBack;
     }
 
-    public void run() {
+    public void run(int id) {
 
         apiService = ApiClient.getClient().create(StudentApiInterface.class);
-        Call<StudentResponse> call = apiService.getStudents();
+        Call<StudentResponse> call = apiService.getStudentsbyGroupId(id);
 
         call.enqueue(new Callback<StudentResponse>() {
             @Override
@@ -46,5 +45,4 @@ public class StudentDownload {
         });
 
     }
-
 }
