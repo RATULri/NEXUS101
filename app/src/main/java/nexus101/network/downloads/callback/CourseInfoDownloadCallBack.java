@@ -1,4 +1,4 @@
-package nexus101.network.downloads;
+package nexus101.network.downloads.callback;
 
 import java.util.List;
 
