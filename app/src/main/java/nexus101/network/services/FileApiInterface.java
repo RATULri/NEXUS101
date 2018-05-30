@@ -12,7 +12,7 @@ import retrofit2.http.Part;
 
 public interface FileApiInterface {
     @GET("studymaterial/getFilesById")
-    Call<FileResponse> getFile();
+    Call<FileResponse> getFiles();
 
     @Multipart
     @POST("studymaterial/store")
