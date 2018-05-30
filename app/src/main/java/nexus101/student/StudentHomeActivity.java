@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import nexus101.NotificationActivity;
 import nexus101.R;
+import nexus101.teacher.TeacherAttendanceCourseSelectActivity;
 
 public class StudentHomeActivity extends AppCompatActivity {
 
@@ -76,5 +77,11 @@ public class StudentHomeActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

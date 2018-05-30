@@ -73,4 +73,11 @@ public class CreateGroupActivity extends AppCompatActivity implements View.OnCli
         mProgressDialog.dismiss();
         Toast.makeText(CreateGroupActivity.this,"Group not Inserted",Toast.LENGTH_SHORT).show();
     }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), AdminGroupActivity.class);
+        startActivity(intent);
+    }
 }

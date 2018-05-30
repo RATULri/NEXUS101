@@ -135,12 +135,6 @@ public class TeacherAttendanceTakingActivity extends AppCompatActivity implement
     }
 
     @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(getApplicationContext(), TeacherAttendanceCourseSelectActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
     public void onStudentInfoDownloadSuccess(List<Student> students) {
         adapter = new StudentAttendanceAdapter(this, students);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -183,5 +177,11 @@ public class TeacherAttendanceTakingActivity extends AppCompatActivity implement
     @Override
     public void onAttendanceInsertError() {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), TeacherAttendanceCourseSelectActivity.class);
+        startActivity(intent);
     }
 }

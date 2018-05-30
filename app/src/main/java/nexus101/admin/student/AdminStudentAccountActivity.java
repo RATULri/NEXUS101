@@ -145,4 +145,11 @@ public class AdminStudentAccountActivity extends AppCompatActivity implements St
         intent.putExtra("student", student);
         startActivity(intent);
     }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), AdminGroupActivity.class);
+        startActivity(intent);
+    }
 }

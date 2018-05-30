@@ -149,4 +149,11 @@ public class TeacherProfileEditActivity extends AppCompatActivity implements Tea
             new TeacherUpdate(this).run(teacher.getTeacherInfo().getId(), name, email, phone, bloodGroup, designation);
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), AdminTeacherAccountActivity.class);
+        startActivity(intent);
+    }
 }

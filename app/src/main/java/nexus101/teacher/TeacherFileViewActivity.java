@@ -176,10 +176,6 @@ public class TeacherFileViewActivity extends AppCompatActivity implements FileIn
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
 
     @Override
     public void onFileUploadSuccess() {

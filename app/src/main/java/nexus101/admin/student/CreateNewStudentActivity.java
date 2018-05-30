@@ -183,4 +183,10 @@ public class CreateNewStudentActivity extends AppCompatActivity implements View.
         mProgressDialog.dismiss();
         Toast.makeText(CreateNewStudentActivity.this,"Sorry, Student couldn't be inserted..",Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), AdminStudentAccountActivity.class);
+        startActivity(intent);
+    }
 }

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import nexus101.NotificationActivity;
 import nexus101.R;
+import nexus101.teacher.TeacherAttendanceCourseSelectActivity;
 
 public class FileViewActivity extends AppCompatActivity {
 

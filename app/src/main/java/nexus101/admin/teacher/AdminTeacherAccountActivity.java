@@ -148,4 +148,10 @@ public class AdminTeacherAccountActivity extends AppCompatActivity implements Te
         startActivity(intent);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), AdminGroupActivity.class);
+        startActivity(intent);
+    }
 }

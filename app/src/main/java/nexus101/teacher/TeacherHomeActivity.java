@@ -129,6 +129,6 @@ public class TeacherHomeActivity extends AppCompatActivity implements CourseInfo
 
     @Override
     public void onBackPressed() {
-        finish();
+        super.onBackPressed();
     }
 }

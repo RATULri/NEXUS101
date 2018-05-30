@@ -78,4 +78,10 @@ public class StudentProfileActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), StudentHomeActivity.class);
+        startActivity(intent);
+    }
+
 }
