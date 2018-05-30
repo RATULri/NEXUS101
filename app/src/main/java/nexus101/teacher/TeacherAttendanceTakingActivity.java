@@ -30,7 +30,7 @@ import nexus101.network.downloads.StudentDownloadByGroup;
 import nexus101.network.downloads.callback.StudentInfoDownloadCallBack;
 import nexus101.network.models.CourseInfo;
 import nexus101.network.models.Student;
-import nexus101.network.uploads.AttendanceInsertCallback;
+import nexus101.network.uploads.callback.AttendanceInsertCallback;
 import nexus101.network.uploads.AttendanceUpload;
 import nexus101.student.StudentHomeActivity;
 import nexus101.student.StudentProfileActivity;

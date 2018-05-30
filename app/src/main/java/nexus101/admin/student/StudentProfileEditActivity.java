@@ -22,7 +22,7 @@ import nexus101.admin.group.AdminGroupActivity;
 import nexus101.network.models.Student;
 import nexus101.network.models.StudentInfo;
 import nexus101.network.uploads.StudentUpdate;
-import nexus101.network.uploads.StudentUpdateCallback;
+import nexus101.network.uploads.callback.StudentUpdateCallback;
 
 public class StudentProfileEditActivity extends AppCompatActivity implements View.OnClickListener, StudentUpdateCallback {
 

@@ -5,6 +5,7 @@ import android.util.Log;
 import nexus101.network.ApiClient;
 import nexus101.network.responses.UpdateResponse;
 import nexus101.network.services.StudentUpdateApiInterface;
+import nexus101.network.uploads.callback.StudentUpdateCallback;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

@@ -10,7 +10,7 @@ import android.widget.EditText;
 import nexus101.admin.group.AdminGroupActivity;
 import nexus101.admin.student.AdminStudentAccountActivity;
 import nexus101.network.models.UserInfo;
-import nexus101.network.uploads.LoginCallback;
+import nexus101.network.uploads.callback.LoginCallback;
 import nexus101.network.uploads.LoginInfoUpload;
 import nexus101.student.StudentHomeActivity;
 import nexus101.teacher.TeacherHomeActivity;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), AdminStudentAccountActivity.class));
+                startActivity(new Intent(getApplicationContext(), TeacherHomeActivity.class));
             }
         });
     }

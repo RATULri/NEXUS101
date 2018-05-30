@@ -1,4 +1,4 @@
-package nexus101.network.uploads;
+package nexus101.network.uploads.callback;
 
 public interface StudentUpdateCallback {
     void onUpdateSuccess();

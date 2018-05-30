@@ -8,6 +8,7 @@ import nexus101.network.ApiClient;
 import nexus101.network.responses.InsertResponse;
 import nexus101.network.services.GroupInsertApiInterface;
 import nexus101.network.services.StudentAttendanceApiInterface;
+import nexus101.network.uploads.callback.AttendanceInsertCallback;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

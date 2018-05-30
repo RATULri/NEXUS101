@@ -11,6 +11,9 @@ public class FileInfo {
     @SerializedName("file_name")
     @Expose
     private String fileName;
+    @SerializedName("file_path")
+    @Expose
+    private String filePath;
     @SerializedName("course_id")
     @Expose
     private Integer courseId;
@@ -41,13 +44,14 @@ public class FileInfo {
      * @param createdAt
      * @param removeDate
      * @param fileName
+     * @param filePath
      * @param courseId
      * @param uploadDate
      */
-    public FileInfo(Integer id, String fileName, Integer courseId, String uploadDate, String removeDate, String createdAt, String updatedAt) {
-        super();
+    public FileInfo(Integer id, String fileName, String filePath, Integer courseId, String uploadDate, String removeDate, String createdAt, String updatedAt) {
         this.id = id;
         this.fileName = fileName;
+        this.filePath = filePath;
         this.courseId = courseId;
         this.uploadDate = uploadDate;
         this.removeDate = removeDate;
@@ -69,6 +73,14 @@ public class FileInfo {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 
     public Integer getCourseId() {

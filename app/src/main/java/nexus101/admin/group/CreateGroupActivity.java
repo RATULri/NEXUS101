@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import nexus101.R;
 import nexus101.network.uploads.GroupInsert;
-import nexus101.network.uploads.GroupInsertCallback;
+import nexus101.network.uploads.callback.GroupInsertCallback;
 
 public class CreateGroupActivity extends AppCompatActivity implements View.OnClickListener, GroupInsertCallback {
 

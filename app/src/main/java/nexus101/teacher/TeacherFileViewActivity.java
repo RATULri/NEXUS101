@@ -13,9 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import nexus101.NotificationActivity;
 import nexus101.R;
+import nexus101.network.uploads.StudyMaterialUpload;
+import nexus101.network.uploads.callback.FileInsertCallback;
 import nexus101.utils.FileUtils;
 
-public class TeacherFileViewActivity extends AppCompatActivity {
+public class TeacherFileViewActivity extends AppCompatActivity implements FileInsertCallback {
 
     private TextView mTextMessage;
     private Button file_upload;
@@ -94,11 +96,22 @@ public class TeacherFileViewActivity extends AppCompatActivity {
         if(requestCode==123 && resultCode==RESULT_OK) {
             Uri selectedfile = data.getData(); //The uri with the location of the file
             //Toast.makeText(getApplicationContext(), FileUtils.getPath(getApplicationContext(), selectedfile).toString(), Toast.LENGTH_SHORT).show();
+            new StudyMaterialUpload(this).run(FileUtils.getPath(getApplicationContext(),selectedfile), "1", "30-05-2018");
         }
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    @Override
+    public void onFileUploadSuccess() {
+
+    }
+
+    @Override
+    public void onFileUploadError() {
+
     }
 }

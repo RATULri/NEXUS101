@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import nexus101.R;
-import nexus101.network.uploads.TeacherInsertCallBack;
+import nexus101.network.uploads.callback.TeacherInsertCallBack;
 import nexus101.network.uploads.TeacherInsert;
 
 public class CreateNewTeacherActivity extends AppCompatActivity implements View.OnClickListener, TeacherInsertCallBack{

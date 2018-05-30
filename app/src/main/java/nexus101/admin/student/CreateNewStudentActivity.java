@@ -17,7 +17,7 @@ import android.widget.Toast;
 import java.util.Locale;
 
 import nexus101.R;
-import nexus101.network.uploads.StudentInsertCallback;
+import nexus101.network.uploads.callback.StudentInsertCallback;
 import nexus101.network.uploads.StudentInsert;
 
 public class CreateNewStudentActivity extends AppCompatActivity implements View.OnClickListener, StudentInsertCallback {
