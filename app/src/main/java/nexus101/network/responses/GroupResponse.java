@@ -4,7 +4,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import nexus101.network.models.GroupsInfo;
+import nexus101.network.models.GroupInfo;
 
 public class GroupResponse {
 
@@ -14,9 +14,9 @@ public class GroupResponse {
     @SerializedName("status")
     @Expose
     private Integer status;
-    @SerializedName("groups_info")
+    @SerializedName("group_info")
     @Expose
-    private List<GroupsInfo> groupsInfo = null;
+    private List<GroupInfo> groupInfo = null;
 
     /**
      * No args constructor for use in serialization
@@ -29,13 +29,13 @@ public class GroupResponse {
      *
      * @param message
      * @param status
-     * @param groupsInfo
+     * @param groupInfo
      */
-    public GroupResponse(String message, Integer status, List<GroupsInfo> groupsInfo) {
+    public GroupResponse(String message, Integer status, List<GroupInfo> groupInfo) {
         super();
         this.message = message;
         this.status = status;
-        this.groupsInfo = groupsInfo;
+        this.groupInfo = groupInfo;
     }
 
     public String getMessage() {
@@ -54,12 +54,12 @@ public class GroupResponse {
         this.status = status;
     }
 
-    public List<GroupsInfo> getGroupsInfo() {
-        return groupsInfo;
+    public List<GroupInfo> getGroupInfo() {
+        return groupInfo;
     }
 
-    public void setGroupsInfo(List<GroupsInfo> groupsInfo) {
-        this.groupsInfo = groupsInfo;
+    public void setGroupInfo(List<GroupInfo> groupInfo) {
+        this.groupInfo = groupInfo;
     }
 
 }

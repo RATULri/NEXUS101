@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,58 +24,42 @@ import nexus101.admin.course.AdminCourseActivity;
 import nexus101.admin.AdminProfileActivity;
 import nexus101.admin.student.AdminStudentAccountActivity;
 import nexus101.admin.teacher.AdminTeacherAccountActivity;
-import nexus101.listeners.CourseItemClickListener;
 import nexus101.listeners.GroupItemClickListener;
-import nexus101.network.downloads.CourseDownload;
-import nexus101.network.downloads.CourseInfoDownloadCallBack;
 import nexus101.network.downloads.GroupDownload;
 import nexus101.network.downloads.GroupInfoDownloadCallBack;
-import nexus101.network.models.CoursesInfo;
-import nexus101.network.models.GroupsInfo;
+import nexus101.network.models.GroupInfo;
 
 public class AdminGroupActivity extends AppCompatActivity implements GroupInfoDownloadCallBack, GroupItemClickListener{
 
     private TextView mTextMessage;
     private BottomNavigationView navigation;
-
     private RecyclerView recyclerView;
     private GroupListAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
     private ProgressDialog mProgressDialog;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_group:
-                    mTextMessage.setText("Group");
-                    return true;
-                case R.id.navigation_course:
-                    mTextMessage.setText("Course");
-                    return true;
-                case R.id.navigation_student_account:
-                    mTextMessage.setText("Student Acc");
-                    return true;
-                case R.id.navigation_teacher_account:
-                    mTextMessage.setText("Teacher Acc");
-                    return true;
-                case R.id.navigation_profile:
-                    mTextMessage.setText("Profile");
-                    return true;
-            }
-            return false;
-        }
-    };
+    private FabSpeedDial fabSpeedDial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_group);
 
+        recyclerView = (RecyclerView) findViewById(R.id.rv_group);
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("Please wait...");
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
 
-        FabSpeedDial fabSpeedDial = (FabSpeedDial)findViewById(R.id.fabGroupMenu);
+        new GroupDownload(AdminGroupActivity.this).run();
+
+        mTextMessage = (TextView) findViewById(R.id.message);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        setBottomNav();
+        setFabOptions();
+    }
+
+    private void setFabOptions() {
+        fabSpeedDial = (FabSpeedDial)findViewById(R.id.fabGroupMenu);
         fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
             @Override
             public boolean onPrepareMenu(NavigationMenu navigationMenu) {
@@ -94,21 +79,10 @@ public class AdminGroupActivity extends AppCompatActivity implements GroupInfoDo
 
             }
         });
-
-        recyclerView = (RecyclerView) findViewById(R.id.rv_group);
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage("Please wait...");
-        mProgressDialog.setCancelable(false);
-        mProgressDialog.show();
-        new GroupDownload(AdminGroupActivity.this).run();
-
-        mTextMessage = (TextView) findViewById(R.id.message);
-        navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        setBottomNav();
-        navigation.setSelectedItemId(R.id.navigation_student_account);
     }
 
     private void setBottomNav() {
+        navigation.setSelectedItemId(R.id.navigation_group);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -140,8 +114,9 @@ public class AdminGroupActivity extends AppCompatActivity implements GroupInfoDo
     }
 
     @Override
-    public void onGroupInfoDownloadSuccess(List<GroupsInfo> groupsInfo) {
-        adapter = new GroupListAdapter(this, groupsInfo, this);
+    public void onGroupInfoDownloadSuccess(List<GroupInfo> groupInfo) {
+        Log.d("Test", String.valueOf(groupInfo.size()));
+        adapter = new GroupListAdapter(this, groupInfo, this);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -155,7 +130,7 @@ public class AdminGroupActivity extends AppCompatActivity implements GroupInfoDo
     }
 
     @Override
-    public void onItemClick(GroupsInfo groupsInfo) {
+    public void onItemClick(GroupInfo groupInfo) {
         Toast.makeText(AdminGroupActivity.this, "Groups", Toast.LENGTH_SHORT).show();
         //Intent intent = new Intent(getApplicationContext(), StudentProfileEditActivity.class);
         //startActivity(intent);

@@ -4,9 +4,7 @@ import android.util.Log;
 
 import nexus101.network.ApiClient;
 import nexus101.network.responses.CourseResponse;
-import nexus101.network.responses.TeacherResponse;
 import nexus101.network.services.CourseApiInterface;
-import nexus101.network.services.TeacherApiInterface;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,9 +26,9 @@ public class CourseDownload {
         call.enqueue(new Callback<CourseResponse>() {
             @Override
             public void onResponse(Call<CourseResponse> call, Response<CourseResponse> response) {
-                Log.d("Test", response.body().getCoursesInfo().toString());
+                Log.d("Test", response.body().getCourseInfo().toString());
                 if (response.body().getStatus().equals(1)){
-                    mCallback.onCourseInfoDownloadSuccess(response.body().getCoursesInfo());
+                    mCallback.onCourseInfoDownloadSuccess(response.body().getCourseInfo());
                 }
                 else {
                     mCallback.onCourseInfoDownloadError();

@@ -20,7 +20,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/et_group_name"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -34,7 +34,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/et_semester"
         android:layout_width="288dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -49,7 +49,7 @@
         tools:layout_editor_absoluteY="182dp" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btn_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), AdminStudentAccountActivity.class));
+                startActivity(new Intent(getApplicationContext(), StudentHomeActivity.class));
             }
         });
     }

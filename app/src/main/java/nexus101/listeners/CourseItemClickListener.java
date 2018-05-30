@@ -1,7 +1,7 @@
 package nexus101.listeners;
 
-import nexus101.network.models.CoursesInfo;
+import nexus101.network.models.CourseInfo;
 
 public interface CourseItemClickListener {
-    void onItemClick(CoursesInfo coursesInfo);
+    void onItemClick(CourseInfo courseInfo);
 }

@@ -26,7 +26,7 @@ import nexus101.admin.group.AdminGroupActivity;
 import nexus101.listeners.CourseItemClickListener;
 import nexus101.network.downloads.CourseDownload;
 import nexus101.network.downloads.CourseInfoDownloadCallBack;
-import nexus101.network.models.CoursesInfo;
+import nexus101.network.models.CourseInfo;
 
 public class AdminCourseActivity extends AppCompatActivity implements CourseInfoDownloadCallBack, CourseItemClickListener{
 
@@ -135,8 +135,8 @@ public class AdminCourseActivity extends AppCompatActivity implements CourseInfo
     }
 
     @Override
-    public void onCourseInfoDownloadSuccess(List<CoursesInfo> coursesInfo) {
-        adapter = new CourseListAdapter(this, coursesInfo, this);
+    public void onCourseInfoDownloadSuccess(List<CourseInfo> courseInfo) {
+        adapter = new CourseListAdapter(this, courseInfo, this);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -150,7 +150,7 @@ public class AdminCourseActivity extends AppCompatActivity implements CourseInfo
     }
 
     @Override
-    public void onItemClick(CoursesInfo coursesInfo) {
+    public void onItemClick(CourseInfo courseInfo) {
         //Intent intent = new Intent(getApplicationContext(), StudentProfileEditActivity.class);
         //startActivity(intent);
     }

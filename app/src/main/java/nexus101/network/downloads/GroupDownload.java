@@ -27,7 +27,7 @@ public class GroupDownload {
             public void onResponse(Call<GroupResponse> call, Response<GroupResponse> response) {
                 //Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
-                    mCallback.onGroupInfoDownloadSuccess(response.body().getGroupsInfo());
+                    mCallback.onGroupInfoDownloadSuccess(response.body().getGroupInfo());
                 }
                 else {
                     mCallback.onGroupInfoDownloadError();

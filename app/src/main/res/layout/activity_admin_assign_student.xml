@@ -12,7 +12,7 @@
         android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText2"
+        android:layout_alignEnd="@+id/et_semester"
         android:layout_alignTop="@+id/button10"
         android:background="@android:color/white"
         android:text="Multiple"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/editText2"
+        android:layout_alignStart="@+id/et_semester"
         android:layout_marginTop="105dp"
         android:background="@android:color/white"
         android:text="Single "
@@ -45,7 +45,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/et_group_name"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -59,7 +59,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/et_semester"
         android:layout_width="288dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -3,7 +3,7 @@ package nexus101.network.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class CoursesInfo {
+public class CourseInfo {
 
     @SerializedName("id")
     @Expose
@@ -28,7 +28,7 @@ public class CoursesInfo {
      * No args constructor for use in serialization
      *
      */
-    public CoursesInfo() {
+    public CourseInfo() {
     }
 
     /**
@@ -40,7 +40,7 @@ public class CoursesInfo {
      * @param courseCode
      * @param courseName
      */
-    public CoursesInfo(Integer id, String courseName, String courseCode, Integer groupId, String createdAt, String updatedAt) {
+    public CourseInfo(Integer id, String courseName, String courseCode, Integer groupId, String createdAt, String updatedAt) {
         super();
         this.id = id;
         this.courseName = courseName;

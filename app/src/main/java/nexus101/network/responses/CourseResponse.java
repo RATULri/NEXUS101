@@ -4,7 +4,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import nexus101.network.models.CoursesInfo;
+import nexus101.network.models.CourseInfo;
 
 public class CourseResponse {
 
@@ -16,7 +16,7 @@ public class CourseResponse {
     private Integer status;
     @SerializedName("courses_info")
     @Expose
-    private List<CoursesInfo> coursesInfo = null;
+    private List<CourseInfo> courseInfo = null;
 
     /**
      * No args constructor for use in serialization
@@ -29,13 +29,13 @@ public class CourseResponse {
      *
      * @param message
      * @param status
-     * @param coursesInfo
+     * @param courseInfo
      */
-    public CourseResponse(String message, Integer status, List<CoursesInfo> coursesInfo) {
+    public CourseResponse(String message, Integer status, List<CourseInfo> courseInfo) {
         super();
         this.message = message;
         this.status = status;
-        this.coursesInfo = coursesInfo;
+        this.courseInfo = courseInfo;
     }
 
     public String getMessage() {
@@ -54,12 +54,12 @@ public class CourseResponse {
         this.status = status;
     }
 
-    public List<CoursesInfo> getCoursesInfo() {
-        return coursesInfo;
+    public List<CourseInfo> getCourseInfo() {
+        return courseInfo;
     }
 
-    public void setCoursesInfo(List<CoursesInfo> coursesInfo) {
-        this.coursesInfo = coursesInfo;
+    public void setCourseInfo(List<CourseInfo> courseInfo) {
+        this.courseInfo = courseInfo;
     }
 
 }
