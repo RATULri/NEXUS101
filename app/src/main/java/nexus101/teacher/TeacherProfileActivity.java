@@ -59,7 +59,7 @@ public class TeacherProfileActivity extends AppCompatActivity {
                 switch (item.getItemId())
                 {
                     case R.id.navigation_home:
-                        Intent intent = new Intent(getApplicationContext(),TeacherProfileActivity.class);
+                        Intent intent = new Intent(getApplicationContext(),TeacherHomeActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.navigation_attendance:
@@ -71,7 +71,7 @@ public class TeacherProfileActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.navigation_profile:
-                        Toast.makeText(TeacherProfileActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TeacherProfileActivity.this, "Profile", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 return true;

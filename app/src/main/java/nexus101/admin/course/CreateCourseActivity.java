@@ -87,4 +87,10 @@ public class CreateCourseActivity extends AppCompatActivity implements GroupInfo
     public void onCourseInsertError() {
         Toast.makeText(getApplicationContext(),"Course not inserted", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), AdminCourseActivity.class);
+        startActivity(intent);
+    }
 }

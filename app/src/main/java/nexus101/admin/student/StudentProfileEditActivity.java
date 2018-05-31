@@ -184,4 +184,11 @@ public class StudentProfileEditActivity extends AppCompatActivity implements Vie
     public void onUpdateError() {
         mProgressDialog.dismiss();
     }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), AdminStudentAccountActivity.class);
+        startActivity(intent);
+    }
 }

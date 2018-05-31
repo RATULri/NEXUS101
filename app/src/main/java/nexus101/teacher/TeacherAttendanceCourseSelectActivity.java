@@ -87,18 +87,18 @@ public class TeacherAttendanceCourseSelectActivity extends AppCompatActivity imp
                 switch (item.getItemId())
                 {
                     case R.id.navigation_home:
-                        Intent intent = new Intent(getApplicationContext(),StudentHomeActivity.class);
+                        Intent intent = new Intent(getApplicationContext(),TeacherHomeActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.navigation_attendance:
-                        Toast.makeText(TeacherAttendanceCourseSelectActivity.this, "StudentAttendanceActivity", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TeacherAttendanceCourseSelectActivity.this, "Teacher Attendance Activity", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.navigation_notification:
                         intent = new Intent(getApplicationContext(), NotificationActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.navigation_profile:
-                        intent = new Intent(getApplicationContext(),StudentProfileActivity.class);
+                        intent = new Intent(getApplicationContext(),TeacherProfileActivity.class);
                         startActivity(intent);
                         break;
                 }

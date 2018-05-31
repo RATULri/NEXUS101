@@ -107,4 +107,11 @@ public class CreateNewTeacherActivity extends AppCompatActivity implements View.
         mProgressDialog.dismiss();
         Toast.makeText(CreateNewTeacherActivity.this, "Sorry, teacher couldn't be inserted", Toast.LENGTH_SHORT).show();
     }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), AdminTeacherAccountActivity.class);
+        startActivity(intent);
+    }
 }

@@ -28,6 +28,7 @@ import nexus101.listeners.GroupItemClickListener;
 import nexus101.network.downloads.GroupDownload;
 import nexus101.network.downloads.callback.GroupInfoDownloadCallBack;
 import nexus101.network.models.GroupInfo;
+import nexus101.student.StudentHomeActivity;
 
 public class AdminGroupActivity extends AppCompatActivity implements GroupInfoDownloadCallBack, GroupItemClickListener{
 
@@ -134,6 +135,12 @@ public class AdminGroupActivity extends AppCompatActivity implements GroupInfoDo
         Toast.makeText(AdminGroupActivity.this, "Groups", Toast.LENGTH_SHORT).show();
         //Intent intent = new Intent(getApplicationContext(), StudentProfileEditActivity.class);
         //startActivity(intent);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
 }
