@@ -1,6 +1,7 @@
 package nexus101.network.services;
 
 import nexus101.network.models.Student;
+import nexus101.network.responses.InsertResponse;
 import nexus101.network.responses.StudentResponse;
 import nexus101.network.responses.TeacherResponse;
 import retrofit2.Call;
@@ -17,7 +18,7 @@ public interface StudentApiInterface {
     @FormUrlEncoded
     Call<StudentResponse> getStudentsbyGroupId(@Field("group_id") int id);
 
-    @POST("student/show")
+    @POST("studentgroup/store")
     @FormUrlEncoded
-    Call<StudentResponse> getStudentById(@Field("student_id") int id);
+    Call<InsertResponse> assignStudent(@Field("student_id") int student_id, @Field("group_id") int group_id);
 }

@@ -8,30 +8,6 @@
     tools:context="nexus101.admin.group.AssignStudentActivity">
 
 
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/et_semester"
-        android:layout_alignTop="@+id/button10"
-        android:background="@android:color/white"
-        android:text="Multiple"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/et_semester"
-        android:layout_marginTop="105dp"
-        android:background="@android:color/white"
-        android:text="Single "
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold" />
-
-
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
@@ -39,61 +15,46 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="47dp"
-        android:text="Assign Students"
+        android:text="Assign Student"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/et_group_name"
+    <Spinner
+        android:id="@+id/spinner_group"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="166dp"
-        android:background="@android:drawable/edit_text"
+        android:layout_marginTop="106dp"
         android:ems="10"
-        android:hint="Roll no"
+        android:hint="Name"
         android:inputType="textEmailAddress"
         android:textColor="#663399"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/et_semester"
+    <Spinner
+        android:id="@+id/spinner_student"
         android:layout_width="288dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="163dp"
-        android:background="@android:drawable/edit_text"
+        android:layout_marginTop="148dp"
         android:ems="10"
-        android:hint="Name of Group"
+        android:hint="Course Code"
         android:textColor="#663399"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="84dp"
         tools:layout_editor_absoluteY="182dp" />
 
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="288dp"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@android:drawable/edit_text"
-        android:ems="10"
-        android:hint="Roll no"
-        android:textColor="#663399"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="182dp" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/assign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="89dp"
+        android:layout_marginTop="198dp"
         android:background="@color/colorPrimary"
         android:text="assign"
         android:textColor="@android:color/white"

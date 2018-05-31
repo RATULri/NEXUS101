@@ -20,28 +20,26 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/et_group_name"
+    <Spinner
+        android:id="@+id/spinner_course"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="106dp"
-        android:background="@android:drawable/edit_text"
         android:ems="10"
         android:hint="Name"
         android:inputType="textEmailAddress"
         android:textColor="#663399"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/et_semester"
+    <Spinner
+        android:id="@+id/spinner_teacher"
         android:layout_width="288dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="171dp"
-        android:background="@android:drawable/edit_text"
+        android:layout_marginTop="148dp"
         android:ems="10"
         android:hint="Course Code"
         android:textColor="#663399"
@@ -51,12 +49,12 @@
 
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/assign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="214dp"
+        android:layout_marginTop="198dp"
         android:background="@color/colorPrimary"
         android:text="assign"
         android:textColor="@android:color/white"

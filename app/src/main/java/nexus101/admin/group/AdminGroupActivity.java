@@ -71,8 +71,20 @@ public class AdminGroupActivity extends AppCompatActivity implements GroupInfoDo
             @Override
             public boolean onMenuItemSelected(MenuItem menuItem) {
                 //Toast.makeText(AdminGroupActivity.this, ""+menuItem.getTitle(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), CreateGroupActivity.class);
-                startActivity(intent);
+                switch (menuItem.getItemId()){
+                    case R.id.create_group : {
+                        Intent intent = new Intent(getApplicationContext(), CreateGroupActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    }
+                    case R.id.assign_students:{
+                        Intent intent = new Intent(getApplicationContext(), AssignStudentActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    }
+                }
                 return true;
             }
 

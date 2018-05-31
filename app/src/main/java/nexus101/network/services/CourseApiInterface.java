@@ -23,4 +23,8 @@ public interface CourseApiInterface {
     @POST("course/store")
     @FormUrlEncoded
     Call<InsertResponse> storeCourse(@Field("course_name") String name, @Field("course_code") String code, @Field("group_id") int id);
+
+    @POST("courseteacher/store")
+    @FormUrlEncoded
+    Call<InsertResponse> asignTeacher(@Field("course_id") int course_id, @Field("teacher_id") int teacher_id);
 }
