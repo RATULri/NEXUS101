@@ -73,15 +73,16 @@ public class StudentFileCourseSelectActivity extends AppCompatActivity implement
         setBottomNav();
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_list);
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage("Please wait...");
-        mProgressDialog.setCancelable(false);
-        mProgressDialog.show();
+
 
         SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
         int id = prefs.getInt("student_id", 0);
 
         if (id != 0){
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage("Please wait...");
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.show();
             new CourseDownloadByStudent(this).run(id);
         }
 

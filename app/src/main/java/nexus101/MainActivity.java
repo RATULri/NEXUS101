@@ -49,12 +49,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
         int status = prefs.getInt("login_status", 0);
         Log.d("Login", String.valueOf(status));
+
         if(status == 1){
-            if(prefs.getString("user_type",null)=="Student"){
+            if(prefs.getString("user_type",null) =="Student"){
                 startActivity(new Intent(getApplicationContext(), StudentHomeActivity.class));
                 finish();
             }
-            else if(prefs.getString("user_type",null)=="Teacher"){
+            else if(prefs.getString("user_type",null) =="Teacher"){
                 startActivity(new Intent(getApplicationContext(), TeacherHomeActivity.class));
                 finish();
             }
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             SharedPreferences.Editor editor = getSharedPreferences("nexus101", MODE_PRIVATE).edit();
             editor.putInt("login_status", 1);
             editor.putString("user_type", "Admin");
-            editor.putInt("teacher_id", id);
+            editor.putInt("admin_id", id);
             editor.apply();
             startActivity(new Intent(getApplicationContext(), AdminGroupActivity.class));
         }

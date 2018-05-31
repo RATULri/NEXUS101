@@ -72,15 +72,15 @@ public class TeacherAttendanceCourseSelectActivity extends AppCompatActivity imp
 
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_list);
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage("Please wait...");
-        mProgressDialog.setCancelable(false);
-        mProgressDialog.show();
 
         SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
-        int id = prefs.getInt("student_id", 0);
+        int id = prefs.getInt("teacher_id", 0);
 
         if (id != 0){
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage("Please wait...");
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.show();
             new CourseDownloadByTeacher(this).run(id);
         }
 

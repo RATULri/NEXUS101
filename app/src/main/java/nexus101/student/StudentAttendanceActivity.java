@@ -77,15 +77,15 @@ public class StudentAttendanceActivity extends AppCompatActivity implements Stud
     }
 
     private void getAttendances(){
-        mProgressDialog = new ProgressDialog(StudentAttendanceActivity.this);
-        mProgressDialog.setMessage("Please wait...");
-        mProgressDialog.setCancelable(false);
-        mProgressDialog.show();
 
         SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
         int id = prefs.getInt("student_id", 0);
 
         if (id != 0){
+            mProgressDialog = new ProgressDialog(StudentAttendanceActivity.this);
+            mProgressDialog.setMessage("Please wait...");
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.show();
             new StudentAttendanceDownload(this).run(id, courseInfo.getId());
         }
 

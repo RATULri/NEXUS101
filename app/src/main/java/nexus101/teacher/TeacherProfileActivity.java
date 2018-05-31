@@ -68,15 +68,14 @@ public class TeacherProfileActivity extends AppCompatActivity implements Teacher
     }
 
     private void getTeacher(){
-        mProgressDialog = new ProgressDialog(TeacherProfileActivity.this);
-        mProgressDialog.setMessage("Loading info..");
-        mProgressDialog.setCancelable(false);
-        mProgressDialog.show();
-
         SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
-        int id = prefs.getInt("student_id", 0);
+        int id = prefs.getInt("teacher_id", 0);
 
         if (id != 0){
+            mProgressDialog = new ProgressDialog(TeacherProfileActivity.this);
+            mProgressDialog.setMessage("Loading info..");
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.show();
             new TeacherDownloadById(this).run(id);
         }
     }

@@ -73,15 +73,16 @@ public class StudentAttendanceCourseSelectActivity extends AppCompatActivity imp
         setBottomNav();
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_list);
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage("Please wait...");
-        mProgressDialog.setCancelable(false);
-        mProgressDialog.show();
 
         SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
         int id = prefs.getInt("student_id", 0);
 
         if (id != 0){
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage("Please wait...");
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.show();
+
             new CourseDownloadByStudent(this).run(id);
         }
     }
@@ -123,12 +124,12 @@ public class StudentAttendanceCourseSelectActivity extends AppCompatActivity imp
 
     @Override
     public void onCourseInfoDownloadSuccess(List<CourseInfo> courseInfo) {
+        mProgressDialog.dismiss();
         adapter = new CourseListAdapter(this, courseInfo, this);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-        mProgressDialog.dismiss();
     }
 
     @Override

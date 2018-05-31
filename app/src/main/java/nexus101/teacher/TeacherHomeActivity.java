@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,15 +71,15 @@ public class TeacherHomeActivity extends AppCompatActivity implements CourseInfo
 
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_list);
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage("Please wait...");
-        mProgressDialog.setCancelable(false);
-        mProgressDialog.show();
 
         SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
-        int id = prefs.getInt("student_id", 0);
-
+        int id = prefs.getInt("teacher_id", 0);
+        Log.d("Id", String.valueOf(id));
         if (id != 0){
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage("Please wait...");
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.show();
             new CourseDownloadByTeacher(TeacherHomeActivity.this).run(id);
         }
 
@@ -115,12 +116,12 @@ public class TeacherHomeActivity extends AppCompatActivity implements CourseInfo
 
     @Override
     public void onCourseInfoDownloadSuccess(List<CourseInfo> courseInfo) {
+        mProgressDialog.dismiss();
         adapter = new CourseListAdapter(this, courseInfo, this);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-        mProgressDialog.dismiss();
     }
 
     @Override
