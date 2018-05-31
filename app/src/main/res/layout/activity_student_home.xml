@@ -25,20 +25,6 @@
         android:layout_alignParentLeft="true" />
 
     <TextView
-        android:id="@+id/previous"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/file_system"
-        android:text="Previous Semesters"
-        android:layout_marginTop="20dp"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textColor="@color/colorPrimary"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:fontFamily="sans-serif" />
-
-    <TextView
         android:id="@+id/title_semester"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,21 +51,13 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/file_system"
+        android:id="@+id/btn_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/current_semester"
+        android:layout_centerInParent="true"
         android:background="@color/colorPrimary"
-        android:text="File system"
+        android:padding="16dp"
+        android:text="Study Materials"
         android:textColor="@android:color/white" />
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/previous"
-        android:layout_above="@+id/navigation"/>
 
 </RelativeLayout>

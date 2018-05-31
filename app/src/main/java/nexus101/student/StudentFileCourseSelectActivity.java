@@ -1,54 +1,38 @@
 package nexus101.student;
 
-import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-
 import nexus101.NotificationActivity;
 import nexus101.R;
-import nexus101.adapters.FileListAdapter;
-import nexus101.network.downloads.FileDownload;
-import nexus101.network.downloads.FileInfoDownloadCallBack;
+import nexus101.adapters.CourseListAdapter;
+import nexus101.listeners.CourseItemClickListener;
+import nexus101.network.downloads.CourseDownloadByStudent;
+import nexus101.network.downloads.CourseDownloadByTeacher;
+import nexus101.network.downloads.callback.CourseInfoDownloadCallBack;
 import nexus101.network.models.CourseInfo;
-import nexus101.network.models.FileInfo;
-import nexus101.network.uploads.StudyMaterialUpload;
-import nexus101.network.uploads.callback.FileInsertCallback;
-import nexus101.teacher.TeacherAttendanceCourseSelectActivity;
-import nexus101.teacher.TeacherFileViewActivity;
 import nexus101.teacher.TeacherHomeActivity;
-import nexus101.teacher.TeacherProfileActivity;
 
-public class FileViewActivity extends AppCompatActivity implements FileInfoDownloadCallBack {
+public class StudentFileCourseSelectActivity extends AppCompatActivity implements CourseInfoDownloadCallBack, CourseItemClickListener {
 
     private TextView mTextMessage;
     private BottomNavigationView navigation;
-    private ProgressDialog mProgressDialog;
-    private CourseInfo courseInfo;
+
     private RecyclerView recyclerView;
-    private FileListAdapter adapter;
+    private CourseListAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
+    private ProgressDialog mProgressDialog;
+    private String group_id;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -73,17 +57,17 @@ public class FileViewActivity extends AppCompatActivity implements FileInfoDownl
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_file_view);
+        setContentView(R.layout.activity_teacher_attendance);
+        getSupportActionBar().setTitle("Select Course");
 
-        courseInfo = (CourseInfo) getIntent().getSerializableExtra("course");
+        group_id = getIntent().getStringExtra("group_id");
 
-        setTitle(courseInfo.getCourseName());
-
-        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         mTextMessage = (TextView) findViewById(R.id.message);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         setBottomNav();
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_list);
@@ -91,11 +75,12 @@ public class FileViewActivity extends AppCompatActivity implements FileInfoDownl
         mProgressDialog.setMessage("Please wait...");
         mProgressDialog.setCancelable(false);
         mProgressDialog.show();
+        new CourseDownloadByStudent(this).run(1);
 
-        new FileDownload(this).run(courseInfo.getId());
     }
 
     private void setBottomNav() {
+        navigation.setSelectedItemId(R.id.navigation_home);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -106,7 +91,7 @@ public class FileViewActivity extends AppCompatActivity implements FileInfoDownl
                         startActivity(intent);
                         break;
                     case R.id.navigation_attendance:
-                        Toast.makeText(FileViewActivity.this, "StudentFileActivity", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StudentFileCourseSelectActivity.this, "StudentFileActivity", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.navigation_notification:
                         intent = new Intent(getApplicationContext(), NotificationActivity.class);
@@ -123,13 +108,15 @@ public class FileViewActivity extends AppCompatActivity implements FileInfoDownl
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+    public void onItemClick(CourseInfo courseInfo) {
+        Intent intent = new Intent(getApplicationContext(), FileViewActivity.class);
+        intent.putExtra("course", courseInfo);
+        startActivity(intent);
     }
 
     @Override
-    public void onFileInfoDownloadSuccess(List<FileInfo> fileInfo) {
-        adapter = new FileListAdapter(this, fileInfo);
+    public void onCourseInfoDownloadSuccess(List<CourseInfo> courseInfo) {
+        adapter = new CourseListAdapter(this, courseInfo, this);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -138,8 +125,13 @@ public class FileViewActivity extends AppCompatActivity implements FileInfoDownl
     }
 
     @Override
-    public void onFileInfoDownloadError() {
+    public void onCourseInfoDownloadError() {
         mProgressDialog.dismiss();
-        Toast.makeText(getApplicationContext(), "No files found", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), TeacherHomeActivity.class);
+        startActivity(intent);
     }
 }

@@ -62,7 +62,7 @@ public class StudentProfileActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.navigation_attendance:
-                        intent = new Intent(getApplicationContext(), StudentAttendanceActivity.class);
+                        intent = new Intent(getApplicationContext(), StudentAttendanceCourseSelectActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.navigation_notification:

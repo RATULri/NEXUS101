@@ -2,17 +2,17 @@ package nexus101.network.services;
 
 import java.util.List;
 
+import nexus101.network.responses.AttendanceResponse;
 import nexus101.network.responses.InsertResponse;
-import nexus101.network.responses.StudentAttendanceResponse;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface StudentAttendanceApiInterface {
-    @GET("attendance/getAttendancelistByStudentId")
-    Call<StudentAttendanceResponse> getAttendances();
+    @POST("attendance/getAttendancelistByStudentId")
+    @FormUrlEncoded
+    Call<AttendanceResponse> getAttendances(@Field("student_id") int student_id, @Field("course_id") int course_id);
 
     @POST("attendance/store")
     @FormUrlEncoded

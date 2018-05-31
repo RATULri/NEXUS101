@@ -4,6 +4,7 @@ import android.util.Log;
 
 import nexus101.network.ApiClient;
 import nexus101.network.downloads.callback.StudentAttendanceInfoDownloadCallBack;
+import nexus101.network.responses.AttendanceResponse;
 import nexus101.network.responses.StudentAttendanceResponse;
 import nexus101.network.services.StudentAttendanceApiInterface;
 import retrofit2.Call;
@@ -19,17 +20,17 @@ public class StudentAttendanceDownload {
         this.mCallback = studentAttendanceInfoDownloadCallBack;
     }
 
-    public void run() {
+    public void run(int student_id, int course_id) {
 
         apiService = ApiClient.getClient().create(StudentAttendanceApiInterface.class);
-        Call<StudentAttendanceResponse> call = apiService.getAttendances();
+        Call<AttendanceResponse> call = apiService.getAttendances(student_id, course_id);
 
-        call.enqueue(new Callback<StudentAttendanceResponse>() {
+        call.enqueue(new Callback<AttendanceResponse>() {
             @Override
-            public void onResponse(Call<StudentAttendanceResponse> call, Response<StudentAttendanceResponse> response) {
-                Log.d("Test", response.body().getStudentAttendancesInfo().toString());
+            public void onResponse(Call<AttendanceResponse> call, Response<AttendanceResponse> response) {
+                Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
-                    mCallback.onStudentAttendanceInfoDownloadSuccess(response.body().getStudentAttendancesInfo());
+                    mCallback.onStudentAttendanceInfoDownloadSuccess(response.body().getAttendance());
                 }
                 else {
                     mCallback.onStudentAttendanceInfoDownloadError();
@@ -38,7 +39,7 @@ public class StudentAttendanceDownload {
             }
 
             @Override
-            public void onFailure(Call<StudentAttendanceResponse> call, Throwable t) {
+            public void onFailure(Call<AttendanceResponse> call, Throwable t) {
                 mCallback.onStudentAttendanceInfoDownloadError();
             }
         });

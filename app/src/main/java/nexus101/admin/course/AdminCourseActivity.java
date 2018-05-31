@@ -79,7 +79,18 @@ public class AdminCourseActivity extends AppCompatActivity implements CourseInfo
 
             @Override
             public boolean onMenuItemSelected(MenuItem menuItem) {
-                Toast.makeText(AdminCourseActivity.this, ""+menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+                switch (menuItem.getItemId()){
+                    case R.id.create_course : {
+                        Intent intent = new Intent(getApplicationContext(), CreateCourseActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case R.id.assign_teachers:{
+                        Intent intent = new Intent(getApplicationContext(), AssignTeacherActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                }
                 return true;
             }
 
@@ -103,7 +114,7 @@ public class AdminCourseActivity extends AppCompatActivity implements CourseInfo
     }
 
     private void setBottomNav() {
-        navigation.setSelectedItemId(R.id.navigation_student_account);
+        navigation.setSelectedItemId(R.id.navigation_course);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

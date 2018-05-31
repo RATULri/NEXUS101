@@ -5,21 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="nexus101.student.FileViewActivity">
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
-        android:text="Select Course"
+        android:layout_marginTop="22dp"
+        android:text="FILES"
+        android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:fontFamily="sans-serif" />
+        tools:layout_editor_absoluteX="127dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -35,15 +38,14 @@
         app:itemIconTint="#fff"
         app:itemTextColor="#fff"
         app:menu="@menu/navigation"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView19"
-        android:layout_above="@id/navigation"
-        android:layout_marginTop="16dp"
-        tools:ignore="InvalidId" />
+        android:layout_above="@+id/navigation"
+        android:layout_below="@id/textView"
+        android:layout_marginTop="16dp" />
 
 </RelativeLayout>

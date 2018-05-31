@@ -1,6 +1,7 @@
 package nexus101.network.services;
 
 import nexus101.network.responses.CourseResponse;
+import nexus101.network.responses.InsertResponse;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -14,4 +15,12 @@ public interface CourseApiInterface {
     @POST("courseteacher/getCourseByTeacherId")
     @FormUrlEncoded
     Call<CourseResponse> getCoursesByTeacher(@Field("teacher_id") int id);
+
+    @POST("course/getCourseByStudentId")
+    @FormUrlEncoded
+    Call<CourseResponse> getCoursesByStudent(@Field("student_id") int id);
+
+    @POST("course/store")
+    @FormUrlEncoded
+    Call<InsertResponse> storeCourse(@Field("course_name") String name, @Field("course_code") String code, @Field("group_id") int id);
 }

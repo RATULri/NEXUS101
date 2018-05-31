@@ -4,8 +4,8 @@
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -89,10 +89,12 @@
             android:label="@string/title_activity_teacher_profile_edit" />
         <activity android:name=".admin.student.CreateNewStudentActivity" />
         <activity android:name=".admin.teacher.CreateNewTeacherActivity" />
-        <activity android:name=".teacher.TeacherFileViewActivity"/>
+        <activity android:name=".teacher.TeacherFileViewActivity" />
         <activity
             android:name=".teacher.TeacherAttendanceTakingActivity"
-            android:label="@string/title_activity_teacher_attendance_taking"></activity>
+            android:label="@string/title_activity_teacher_attendance_taking" />
+        <activity android:name=".student.StudentFileCourseSelectActivity" />
+        <activity android:name=".student.StudentAttendanceCourseSelectActivity"></activity>
     </application>
 
 </manifest>
