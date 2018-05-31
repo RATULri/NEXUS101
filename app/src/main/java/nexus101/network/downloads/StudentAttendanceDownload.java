@@ -28,7 +28,7 @@ public class StudentAttendanceDownload {
         call.enqueue(new Callback<AttendanceResponse>() {
             @Override
             public void onResponse(Call<AttendanceResponse> call, Response<AttendanceResponse> response) {
-                Log.d("Test", response.body().toString());
+                //Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
                     mCallback.onStudentAttendanceInfoDownloadSuccess(response.body().getAttendance());
                 }

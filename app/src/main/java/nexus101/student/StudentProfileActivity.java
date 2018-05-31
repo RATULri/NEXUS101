@@ -2,6 +2,7 @@ package nexus101.student;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,9 +17,11 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import nexus101.MainActivity;
 import nexus101.NotificationActivity;
 import nexus101.R;
 import nexus101.admin.student.StudentProfileEditActivity;
+import nexus101.network.downloads.GroupDownloadByStudent;
 import nexus101.network.downloads.StudentDownloadById;
 import nexus101.network.downloads.callback.StudentInfoDownloadCallBack;
 import nexus101.network.models.Student;
@@ -49,7 +52,7 @@ public class StudentProfileActivity extends AppCompatActivity implements View.On
     private EditText et_session;
     private EditText et_hall;
 
-    private Button bt_save;
+    private Button bt_save, log_out;
     private ImageButton edit;
 
     private TextView mTextMessage;
@@ -87,6 +90,9 @@ public class StudentProfileActivity extends AppCompatActivity implements View.On
 
         bt_save = (Button) findViewById(R.id.save_button);
         bt_save.setOnClickListener(this);
+
+        log_out = findViewById(R.id.log_out);
+        log_out.setOnClickListener(this);
 
         edit = findViewById(R.id.imageButton);
         edit.setOnClickListener(this);
@@ -132,7 +138,12 @@ public class StudentProfileActivity extends AppCompatActivity implements View.On
         mProgressDialog.setCancelable(false);
         mProgressDialog.show();
 
-        new StudentDownloadById(this).run(1);
+        SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
+        int id = prefs.getInt("student_id", 0);
+
+        if (id != 0){
+            new StudentDownloadById(this).run(id);
+        }
     }
 
 
@@ -182,6 +193,13 @@ public class StudentProfileActivity extends AppCompatActivity implements View.On
             mProgressDialog.show();
 
             new StudentUpdate(this).run(student.getStudentInfo().getId(), name,email,phone,address,dateOfBirth,bloodGroup,rollNo,registrationNo,session,hall);
+        }
+
+        if (v.getId() == R.id.log_out){
+            SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.clear().commit();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
     }
 

@@ -2,6 +2,7 @@ package nexus101.teacher;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,9 +17,11 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import nexus101.MainActivity;
 import nexus101.NotificationActivity;
 import nexus101.R;
 import nexus101.admin.teacher.TeacherProfileEditActivity;
+import nexus101.network.downloads.GroupDownloadByStudent;
 import nexus101.network.downloads.TeacherDownloadById;
 import nexus101.network.downloads.callback.TeacherInfoDownloadCallBack;
 import nexus101.network.models.Teacher;
@@ -39,7 +42,7 @@ public class TeacherProfileActivity extends AppCompatActivity implements Teacher
     private EditText et_bloodGroup;
     private EditText et_designation;
 
-    private Button bt_save;
+    private Button bt_save, log_out;
     private ImageButton edit;
     private TextView mTextMessage;
     private BottomNavigationView navigation;
@@ -70,7 +73,12 @@ public class TeacherProfileActivity extends AppCompatActivity implements Teacher
         mProgressDialog.setCancelable(false);
         mProgressDialog.show();
 
-        new TeacherDownloadById(this).run(1);
+        SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
+        int id = prefs.getInt("student_id", 0);
+
+        if (id != 0){
+            new TeacherDownloadById(this).run(id);
+        }
     }
 
     private void initialize() {
@@ -82,6 +90,9 @@ public class TeacherProfileActivity extends AppCompatActivity implements Teacher
 
         bt_save = (Button) findViewById(R.id.save_button);
         bt_save.setOnClickListener(this);
+
+        log_out = findViewById(R.id.log_out);
+        log_out.setOnClickListener(this);
 
         edit = findViewById(R.id.imageButton);
         edit.setOnClickListener(this);
@@ -152,6 +163,14 @@ public class TeacherProfileActivity extends AppCompatActivity implements Teacher
             mProgressDialog.show();
 
             new TeacherUpdate(this).run(teacher.getTeacherInfo().getId(), name, email, phone, bloodGroup, designation);
+        }
+
+
+        if (v.getId() == R.id.log_out){
+            SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.clear().commit();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
     }
 

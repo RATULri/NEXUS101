@@ -29,7 +29,7 @@ public class LoginInfoUpload {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
-                    mCallback.onLoginSuccess(response.body().getUserInfo());
+                    mCallback.onLoginSuccess(response.body().getUserInfo(), response.body().getId());
                 }
                 else {
                     mCallback.onLoginFailed();

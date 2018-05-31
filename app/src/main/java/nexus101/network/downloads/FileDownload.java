@@ -25,7 +25,7 @@ public class FileDownload {
         call.enqueue(new Callback<FileResponse>() {
             @Override
             public void onResponse(Call<FileResponse> call, Response<FileResponse> response) {
-                Log.d("Test", response.body().toString());
+                //Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
                     mCallback.onFileInfoDownloadSuccess(response.body().getFileInfo());
                 }

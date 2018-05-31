@@ -27,7 +27,7 @@ public class CourseDownloadByTeacher {
         call.enqueue(new Callback<CourseResponse>() {
             @Override
             public void onResponse(Call<CourseResponse> call, Response<CourseResponse> response) {
-                Log.d("Test", response.body().toString());
+                //Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
                     mCallback.onCourseInfoDownloadSuccess(response.body().getCourseInfo());
                 }

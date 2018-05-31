@@ -2,6 +2,7 @@ package nexus101.student;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -19,6 +20,7 @@ import nexus101.NotificationActivity;
 import nexus101.R;
 import nexus101.adapters.AttendanceAdapter;
 import nexus101.adapters.FileListAdapter;
+import nexus101.network.downloads.GroupDownloadByStudent;
 import nexus101.network.downloads.StudentAttendanceDownload;
 import nexus101.network.downloads.callback.StudentAttendanceInfoDownloadCallBack;
 import nexus101.network.models.Attendance;
@@ -79,7 +81,14 @@ public class StudentAttendanceActivity extends AppCompatActivity implements Stud
         mProgressDialog.setMessage("Please wait...");
         mProgressDialog.setCancelable(false);
         mProgressDialog.show();
-        new StudentAttendanceDownload(this).run(1, courseInfo.getId());
+
+        SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
+        int id = prefs.getInt("student_id", 0);
+
+        if (id != 0){
+            new StudentAttendanceDownload(this).run(id, courseInfo.getId());
+        }
+
     }
 
     private void setBottomNav() {

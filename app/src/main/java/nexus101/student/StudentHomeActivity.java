@@ -1,6 +1,7 @@
 package nexus101.student;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -64,7 +65,12 @@ public class StudentHomeActivity extends AppCompatActivity implements GroupInfoD
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         setBottomNav();
 
-        new GroupDownloadByStudent(this).run(1);
+        SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
+        int id = prefs.getInt("student_id", 0);
+
+        if (id != 0){
+            new GroupDownloadByStudent(this).run(id);
+        }
     }
 
     private void setBottomNav() {

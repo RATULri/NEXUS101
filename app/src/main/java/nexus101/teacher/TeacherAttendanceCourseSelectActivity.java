@@ -2,6 +2,7 @@ package nexus101.teacher;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -75,7 +76,13 @@ public class TeacherAttendanceCourseSelectActivity extends AppCompatActivity imp
         mProgressDialog.setMessage("Please wait...");
         mProgressDialog.setCancelable(false);
         mProgressDialog.show();
-        new CourseDownloadByTeacher(this).run(1);
+
+        SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
+        int id = prefs.getInt("student_id", 0);
+
+        if (id != 0){
+            new CourseDownloadByTeacher(this).run(id);
+        }
 
     }
 

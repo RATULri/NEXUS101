@@ -2,6 +2,7 @@ package nexus101.student;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import nexus101.adapters.CourseListAdapter;
 import nexus101.listeners.CourseItemClickListener;
 import nexus101.network.downloads.CourseDownloadByStudent;
 import nexus101.network.downloads.CourseDownloadByTeacher;
+import nexus101.network.downloads.GroupDownloadByStudent;
 import nexus101.network.downloads.callback.CourseInfoDownloadCallBack;
 import nexus101.network.models.CourseInfo;
 import nexus101.teacher.TeacherHomeActivity;
@@ -75,7 +77,13 @@ public class StudentFileCourseSelectActivity extends AppCompatActivity implement
         mProgressDialog.setMessage("Please wait...");
         mProgressDialog.setCancelable(false);
         mProgressDialog.show();
-        new CourseDownloadByStudent(this).run(1);
+
+        SharedPreferences prefs = getSharedPreferences("nexus101", MODE_PRIVATE);
+        int id = prefs.getInt("student_id", 0);
+
+        if (id != 0){
+            new CourseDownloadByStudent(this).run(id);
+        }
 
     }
 
