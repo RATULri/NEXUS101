@@ -3,7 +3,9 @@ package nexus101.network.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class TeacherInfo {
+import java.io.Serializable;
+
+public class TeacherInfo implements Serializable{
 
     @SerializedName("id")
     @Expose

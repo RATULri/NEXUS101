@@ -145,6 +145,7 @@ public class AdminTeacherAccountActivity extends AppCompatActivity implements Te
     @Override
     public void onItemClick(Teacher teacher) {
         Intent intent = new Intent(getApplicationContext(), TeacherProfileEditActivity.class);
+        intent.putExtra("teacher", teacher);
         startActivity(intent);
     }
 

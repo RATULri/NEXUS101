@@ -171,6 +171,7 @@ public class AdminCourseActivity extends AppCompatActivity implements CourseInfo
     public void onBackPressed() {
         Intent intent = new Intent(getApplicationContext(), AdminGroupActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }

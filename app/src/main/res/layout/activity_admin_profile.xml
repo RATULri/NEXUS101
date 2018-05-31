@@ -58,4 +58,18 @@
         app:menu="@menu/admin_navigation"
         android:layout_alignParentLeft="true" />
 
+
+    <Button
+        android:id="@+id/log_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/navigation"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorPrimary"
+        android:text="log out"
+        android:textColor="#fff"
+        android:textSize="10sp" />
+    
 </RelativeLayout>

@@ -229,7 +229,9 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Hall"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:enabled="false"
+            android:textColor="#000"/>
 
         <Button
             android:id="@+id/save_button"

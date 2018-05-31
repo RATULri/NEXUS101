@@ -20,22 +20,23 @@
         android:text="Name"
         android:textColor="#000"
         android:textSize="16sp"
-        android:layout_alignRight="@+id/imageButton" />
+        android:layout_alignRight="@+id/imageButton"
+        android:gravity="right" />
 
 
     <EditText
         android:id="@+id/designation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/name"
         android:layout_below="@+id/name"
         android:ems="10"
         android:enabled="false"
         android:inputType="textPersonName"
         android:text="Designation"
+        android:gravity="right"
         android:textColor="#000"
         android:textSize="12sp"
-        android:layout_alignLeft="@+id/name" />
+        android:layout_alignRight="@+id/name" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -57,11 +58,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="25dp"
         android:background="@android:color/white"
         android:tint="@color/colorPrimary"
-        app:srcCompat="@android:drawable/ic_menu_edit"
-        android:layout_alignParentRight="true" />
+        app:srcCompat="@android:drawable/ic_menu_edit" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -88,7 +89,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/Email"
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/imageView"
@@ -150,5 +151,18 @@
             android:visibility="invisible"/>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/log_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/navigation"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorPrimary"
+        android:text="log out"
+        android:textColor="#fff"
+        android:textSize="10sp" />
 
 </RelativeLayout>

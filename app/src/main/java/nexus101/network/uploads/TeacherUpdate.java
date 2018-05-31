@@ -31,7 +31,7 @@ public class TeacherUpdate {
         call.enqueue(new Callback<UpdateResponse>() {
             @Override
             public void onResponse(Call<UpdateResponse> call, Response<UpdateResponse> response) {
-                Log.d("Test", response.body().toString());
+                //Log.d("Test", response.body().toString());
                 if (response.body().getStatus().equals(1)){
                     mCallback.onUpdateSuccess();
                 }

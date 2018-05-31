@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import nexus101.R;
 import nexus101.admin.AdminProfileActivity;
@@ -53,11 +54,14 @@ public class TeacherProfileEditActivity extends AppCompatActivity implements Tea
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_teacher_profile_edit);
+        getSupportActionBar().setTitle("Teacher Profile");
+
+        teacher = (Teacher) getIntent().getSerializableExtra("teacher");
+        initialize();
 
         mTextMessage = (TextView) findViewById(R.id.message);
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         setBottomNav();
-        initialize();
         setTeacherInfo(teacher);
     }
 
@@ -106,7 +110,7 @@ public class TeacherProfileEditActivity extends AppCompatActivity implements Tea
         edit.setOnClickListener(this);
     }
 
-    public void setTeacherInfo(Teacher teacherInfo) {
+    public void setTeacherInfo(Teacher teacher) {
         et_name.setText(teacher.getUserInfo().getName());
         et_email.setText(teacher.getUserInfo().getEmail());
         et_phone.setText(teacher.getUserInfo().getPhoneNumber());
@@ -116,7 +120,7 @@ public class TeacherProfileEditActivity extends AppCompatActivity implements Tea
 
     @Override
     public void onUpdateSuccess() {
-
+        Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -15,5 +15,5 @@ public interface TeacherUpdateApiInterface {
                                        @Field("email") String email,
                                        @Field("phone_number") String phone_number,
                                        @Field("blood_group") String bloodGroup,
-                                       @Field("attached_hall") String designation);
+                                       @Field("designation") String designation);
 }
