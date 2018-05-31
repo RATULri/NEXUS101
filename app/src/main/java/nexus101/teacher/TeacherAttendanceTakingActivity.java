@@ -62,9 +62,9 @@ public class TeacherAttendanceTakingActivity extends AppCompatActivity implement
                 case R.id.navigation_attendance:
                     mTextMessage.setText(R.string.title_attendance);
                     return true;
-                case R.id.navigation_notification:
+                /*case R.id.navigation_notification:
                     mTextMessage.setText(R.string.title_notifications);
-                    return true;
+                    return true;*/
                 case R.id.navigation_profile:
                     mTextMessage.setText(R.string.title_profile);
                     return true;
@@ -77,6 +77,7 @@ public class TeacherAttendanceTakingActivity extends AppCompatActivity implement
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_attendance_taking);
+        getSupportActionBar().setTitle("Nexus 101");
 
         courseInfo = (CourseInfo) getIntent().getSerializableExtra("course");
 
@@ -120,10 +121,10 @@ public class TeacherAttendanceTakingActivity extends AppCompatActivity implement
                     case R.id.navigation_attendance:
                         Toast.makeText(TeacherAttendanceTakingActivity.this, "Attendance", Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.navigation_notification:
+                    /*case R.id.navigation_notification:
                         intent = new Intent(getApplicationContext(), NotificationActivity.class);
                         startActivity(intent);
-                        break;
+                        break;*/
                     case R.id.navigation_profile:
                         intent = new Intent(getApplicationContext(),TeacherProfileActivity.class);
                         startActivity(intent);

@@ -68,6 +68,7 @@ public class AdminCourseActivity extends AppCompatActivity implements CourseInfo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_course);
+        getSupportActionBar().setTitle("Nexus 101");
 
 
         FabSpeedDial fabSpeedDial = (FabSpeedDial)findViewById(R.id.fabCourseMenu);

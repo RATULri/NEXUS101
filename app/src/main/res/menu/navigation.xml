@@ -11,11 +11,11 @@
         android:icon="@drawable/ic_attendance"
         android:title="@string/title_attendance" />
 
-    <item
+    <!--<item
         android:id="@+id/navigation_notification"
         android:icon="@drawable/ic_notification"
         android:title="@string/title_notifications" />
-
+-->
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_profile"

@@ -11,5 +11,6 @@ public class AssignStudentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_assign_student);
+        getSupportActionBar().setTitle("Nexus 101");
     }
 }

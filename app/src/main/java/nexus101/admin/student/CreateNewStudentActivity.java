@@ -56,6 +56,7 @@ public class CreateNewStudentActivity extends AppCompatActivity implements View.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_create_new_student);
+        getSupportActionBar().setTitle("Nexus 101");
 
         initialize();
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {

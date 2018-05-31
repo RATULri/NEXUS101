@@ -63,9 +63,9 @@ public class TeacherFileViewActivity extends AppCompatActivity implements FileIn
                 case R.id.navigation_attendance:
                     mTextMessage.setText(R.string.title_attendance);
                     return true;
-                case R.id.navigation_notification:
+                /*case R.id.navigation_notification:
                     mTextMessage.setText(R.string.title_notifications);
-                    return true;
+                    return true;*/
                 case R.id.navigation_profile:
                     mTextMessage.setText(R.string.title_profile);
                     return true;
@@ -78,6 +78,7 @@ public class TeacherFileViewActivity extends AppCompatActivity implements FileIn
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_file_view);
+        getSupportActionBar().setTitle("Nexus 101");
 
         courseInfo = (CourseInfo) getIntent().getSerializableExtra("course");
 
@@ -119,10 +120,10 @@ public class TeacherFileViewActivity extends AppCompatActivity implements FileIn
                         intent = new Intent(getApplicationContext(), TeacherAttendanceCourseSelectActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.navigation_notification:
+                    /*case R.id.navigation_notification:
                         intent = new Intent(getApplicationContext(), NotificationActivity.class);
                         startActivity(intent);
-                        break;
+                        break;*/
                     case R.id.navigation_profile:
                         intent = new Intent(getApplicationContext(),TeacherProfileActivity.class);
                         startActivity(intent);

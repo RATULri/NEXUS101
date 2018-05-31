@@ -45,9 +45,9 @@ public class TeacherHomeActivity extends AppCompatActivity implements CourseInfo
                 case R.id.navigation_attendance:
                     mTextMessage.setText(R.string.title_attendance);
                     return true;
-                case R.id.navigation_notification:
+                /*case R.id.navigation_notification:
                     mTextMessage.setText(R.string.title_notifications);
-                    return true;
+                    return true;*/
                 case R.id.navigation_profile:
                     mTextMessage.setText(R.string.title_profile);
                     return true;
@@ -60,7 +60,7 @@ public class TeacherHomeActivity extends AppCompatActivity implements CourseInfo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_home);
-        getSupportActionBar().setTitle("Home");
+        getSupportActionBar().setTitle("Nexus 101");
 
         mTextMessage = (TextView) findViewById(R.id.message);
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -90,10 +90,10 @@ public class TeacherHomeActivity extends AppCompatActivity implements CourseInfo
                         Intent intent = new Intent(getApplicationContext(), TeacherAttendanceCourseSelectActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.navigation_notification:
+                    /*case R.id.navigation_notification:
                         intent = new Intent(getApplicationContext(), NotificationActivity.class);
                         startActivity(intent);
-                        break;
+                        break;*/
                     case R.id.navigation_profile:
                         intent = new Intent(getApplicationContext(),TeacherProfileActivity.class);
                         startActivity(intent);

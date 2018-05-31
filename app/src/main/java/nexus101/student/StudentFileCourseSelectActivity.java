@@ -46,9 +46,9 @@ public class StudentFileCourseSelectActivity extends AppCompatActivity implement
                 case R.id.navigation_attendance:
                     mTextMessage.setText(R.string.title_attendance);
                     return true;
-                case R.id.navigation_notification:
+                /*case R.id.navigation_notification:
                     mTextMessage.setText(R.string.title_notifications);
-                    return true;
+                    return true;*/
                 case R.id.navigation_profile:
                     mTextMessage.setText(R.string.title_profile);
                     return true;
@@ -93,10 +93,10 @@ public class StudentFileCourseSelectActivity extends AppCompatActivity implement
                     case R.id.navigation_attendance:
                         Toast.makeText(StudentFileCourseSelectActivity.this, "StudentFileActivity", Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.navigation_notification:
+                    /*case R.id.navigation_notification:
                         intent = new Intent(getApplicationContext(), NotificationActivity.class);
                         startActivity(intent);
-                        break;
+                        break;*/
                     case R.id.navigation_profile:
                         intent = new Intent(getApplicationContext(),StudentProfileActivity.class);
                         startActivity(intent);

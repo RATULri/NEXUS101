@@ -39,9 +39,9 @@ public class StudentHomeActivity extends AppCompatActivity implements GroupInfoD
                     case R.id.navigation_attendance:
                         mTextMessage.setText(R.string.title_attendance);
                         return true;
-                    case R.id.navigation_notification:
+                    /*case R.id.navigation_notification:
                         mTextMessage.setText(R.string.title_notifications);
-                        return true;
+                        return true;*/
                     case R.id.navigation_profile:
                         mTextMessage.setText(R.string.title_profile);
                         return true;
@@ -54,6 +54,7 @@ public class StudentHomeActivity extends AppCompatActivity implements GroupInfoD
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home);
+        getSupportActionBar().setTitle("Nexus 101");
 
         sem = findViewById(R.id.current_semester);
         btn_file = findViewById(R.id.btn_file);
@@ -80,10 +81,10 @@ public class StudentHomeActivity extends AppCompatActivity implements GroupInfoD
                         Intent intent = new Intent(getApplicationContext(), StudentAttendanceCourseSelectActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.navigation_notification:
+                    /*case R.id.navigation_notification:
                         intent = new Intent(getApplicationContext(), NotificationActivity.class);
                         startActivity(intent);
-                        break;
+                        break;*/
                     case R.id.navigation_profile:
                         intent = new Intent(getApplicationContext(),StudentProfileActivity.class);
                         startActivity(intent);

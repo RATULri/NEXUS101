@@ -60,6 +60,7 @@ public class StudentProfileEditActivity extends AppCompatActivity implements Vie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_student_profile_edit);
+        getSupportActionBar().setTitle("Nexus 101");
 
         student = (Student) getIntent().getSerializableExtra("student");
 

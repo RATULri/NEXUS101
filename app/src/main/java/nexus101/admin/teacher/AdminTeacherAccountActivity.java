@@ -68,6 +68,7 @@ public class AdminTeacherAccountActivity extends AppCompatActivity implements Te
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_teacher_account);
+        getSupportActionBar().setTitle("Nexus 101");
 
 
         //Create New Teacher Account

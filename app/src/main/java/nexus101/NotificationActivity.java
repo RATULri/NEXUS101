@@ -29,9 +29,9 @@ public class NotificationActivity extends AppCompatActivity {
                 case R.id.navigation_attendance:
                     mTextMessage.setText(R.string.title_attendance);
                     return true;
-                case R.id.navigation_notification:
+                /*case R.id.navigation_notification:
                     mTextMessage.setText(R.string.title_notifications);
-                    return true;
+                    return true;*/
                 case R.id.navigation_profile:
                     mTextMessage.setText(R.string.title_profile);
                     return true;
@@ -60,9 +60,9 @@ public class NotificationActivity extends AppCompatActivity {
                         intent = new Intent(getApplicationContext(),StudentAttendanceActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.navigation_notification:
+                    /*case R.id.navigation_notification:
                         Toast.makeText(NotificationActivity.this, "Notification", Toast.LENGTH_SHORT).show();
-                        break;
+                        break;*/
                     case R.id.navigation_profile:
                         intent = new Intent(getApplicationContext(),StudentProfileActivity.class);
                         startActivity(intent);

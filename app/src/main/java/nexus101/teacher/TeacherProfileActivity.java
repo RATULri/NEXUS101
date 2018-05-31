@@ -52,7 +52,7 @@ public class TeacherProfileActivity extends AppCompatActivity implements Teacher
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_profile);
-        getSupportActionBar().setTitle("Profile");
+        getSupportActionBar().setTitle("Nexus 101");
 
         //teacher = (Teacher) getIntent().getSerializableExtra("teacher");
         initialize();
@@ -102,10 +102,10 @@ public class TeacherProfileActivity extends AppCompatActivity implements Teacher
                         intent = new Intent(getApplicationContext(), TeacherAttendanceCourseSelectActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.navigation_notification:
+                    /*case R.id.navigation_notification:
                         intent = new Intent(getApplicationContext(), NotificationActivity.class);
                         startActivity(intent);
-                        break;
+                        break;*/
                     case R.id.navigation_profile:
                         Toast.makeText(TeacherProfileActivity.this, "Profile", Toast.LENGTH_SHORT).show();
                         break;

@@ -48,12 +48,12 @@ public class TeacherAttendanceCourseSelectActivity extends AppCompatActivity imp
                 case R.id.navigation_attendance:
                     mTextMessage.setText(R.string.title_attendance);
                     return true;
-                case R.id.navigation_notification:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
                 case R.id.navigation_profile:
                     mTextMessage.setText(R.string.title_profile);
                     return true;
+                /*case R.id.navigation_notification:
+                    mTextMessage.setText(R.string.title_notifications);
+                    return true;*/
             }
             return false;
         }
@@ -93,10 +93,10 @@ public class TeacherAttendanceCourseSelectActivity extends AppCompatActivity imp
                     case R.id.navigation_attendance:
                         Toast.makeText(TeacherAttendanceCourseSelectActivity.this, "Teacher Attendance Activity", Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.navigation_notification:
+                    /*case R.id.navigation_notification:
                         intent = new Intent(getApplicationContext(), NotificationActivity.class);
                         startActivity(intent);
-                        break;
+                        break;*/
                     case R.id.navigation_profile:
                         intent = new Intent(getApplicationContext(),TeacherProfileActivity.class);
                         startActivity(intent);

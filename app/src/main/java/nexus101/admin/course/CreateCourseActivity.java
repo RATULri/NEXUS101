@@ -33,6 +33,7 @@ public class CreateCourseActivity extends AppCompatActivity implements GroupInfo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_create_course);
+        getSupportActionBar().setTitle("Nexus 101");
         initialize();
     }
 

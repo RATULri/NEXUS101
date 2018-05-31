@@ -44,6 +44,7 @@ public class AdminGroupActivity extends AppCompatActivity implements GroupInfoDo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_group);
+        getSupportActionBar().setTitle("Nexus 101");
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_group);
         mProgressDialog = new ProgressDialog(this);

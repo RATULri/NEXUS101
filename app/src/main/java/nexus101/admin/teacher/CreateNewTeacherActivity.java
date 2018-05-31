@@ -37,6 +37,7 @@ public class CreateNewTeacherActivity extends AppCompatActivity implements View.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_create_new_teacher);
+        getSupportActionBar().setTitle("Nexus 101");
 
         initialize();
     }

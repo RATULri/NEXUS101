@@ -25,6 +25,7 @@ public class CreateGroupActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_create_group);
+        getSupportActionBar().setTitle("Nexus 101");
 
         initialize();
     }

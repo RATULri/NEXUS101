@@ -66,6 +66,7 @@ public class AdminStudentAccountActivity extends AppCompatActivity implements St
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_student_account);
+        getSupportActionBar().setTitle("Nexus 101");
 
         //Create New Student Account
         Button create = findViewById(R.id.create_student);

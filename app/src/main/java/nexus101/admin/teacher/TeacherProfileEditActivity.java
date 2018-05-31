@@ -54,7 +54,7 @@ public class TeacherProfileEditActivity extends AppCompatActivity implements Tea
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_teacher_profile_edit);
-        getSupportActionBar().setTitle("Teacher Profile");
+        getSupportActionBar().setTitle("Nexus 101");
 
         teacher = (Teacher) getIntent().getSerializableExtra("teacher");
         initialize();
