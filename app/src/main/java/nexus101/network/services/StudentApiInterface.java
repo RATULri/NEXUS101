@@ -21,4 +21,8 @@ public interface StudentApiInterface {
     @POST("studentgroup/store")
     @FormUrlEncoded
     Call<InsertResponse> assignStudent(@Field("student_id") int student_id, @Field("group_id") int group_id);
+
+    @POST("student/show")
+    @FormUrlEncoded
+    Call<StudentResponse> getStudentById(@Field("student_id") int id);
 }
