@@ -104,7 +104,7 @@ public class StudentHomeActivity extends AppCompatActivity implements GroupInfoD
     @Override
     public void onGroupInfoDownloadSuccess(List<GroupInfo> groupInfo) {
         group_id = groupInfo.get(0).getId();
-        sem.setText(groupInfo.get(0).getGroupName());
+        sem.setText(groupInfo.get(0).getSemesterYear());
     }
 
     @Override

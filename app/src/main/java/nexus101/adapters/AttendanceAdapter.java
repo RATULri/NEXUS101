@@ -59,7 +59,7 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Ca
 
         public void bind(final Attendance attendance) {
             date.setText(attendance.getAttendanceInfo().getDate());
-            if (attendance.getAttendanceInfo().getIsPresent().equals(1)){
+            if (attendance.getAttendanceInfo().getIsPresent().equals("1")){
                 present.setText("P");
             }
             else {

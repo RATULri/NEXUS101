@@ -48,7 +48,7 @@ public class TeacherAttendanceTakingActivity extends AppCompatActivity implement
     private Button save;
     private TextView date;
     private String current_date;
-    private int couser_id;
+    private int course_id;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -154,7 +154,7 @@ public class TeacherAttendanceTakingActivity extends AppCompatActivity implement
     public void onClick(View v) {
         List<Integer> student_id = new ArrayList<>();
         List<Integer> isPresent = new ArrayList<>();
-        couser_id = courseInfo.getId();
+        course_id = courseInfo.getId();
         if (v.getId() == R.id.save_button){
             for(Student student : adapter.checkedStudents){
                 student_id.add(student.getStudentInfo().getId());
@@ -164,7 +164,7 @@ public class TeacherAttendanceTakingActivity extends AppCompatActivity implement
                 student_id.add(student.getStudentInfo().getId());
                 isPresent.add(0);
             }
-            new AttendanceUpload(this).run(couser_id, student_id, isPresent, current_date);
+            new AttendanceUpload(this).run(course_id, student_id, isPresent, current_date);
         }
     }
 

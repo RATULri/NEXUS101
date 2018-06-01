@@ -121,12 +121,13 @@ public class StudentAttendanceActivity extends AppCompatActivity implements Stud
 
     @Override
     public void onStudentAttendanceInfoDownloadSuccess(List<Attendance> attendances) {
+        mProgressDialog.dismiss();
         adapter = new AttendanceAdapter(this, attendances);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-        mProgressDialog.dismiss();
+
     }
 
     @Override
